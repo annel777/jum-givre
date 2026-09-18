@@ -9,7 +9,7 @@
   },
   "taste": 5,
   "size": "geante",
-  "price": "norme",
+  "price": null,
   "welcome": "sympa",
   "bonus": [
     "deco",

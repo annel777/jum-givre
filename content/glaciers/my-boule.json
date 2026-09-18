@@ -9,7 +9,7 @@
   },
   "taste": 4,
   "size": "geante",
-  "price": "cher",
+  "price": null,
   "welcome": "super",
   "bonus": [
     "bien-place",

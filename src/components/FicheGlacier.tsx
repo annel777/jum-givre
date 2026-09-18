@@ -1,6 +1,6 @@
 import { Boules } from './Boules';
 import { Cone } from './Cone';
-import { moisLisible, t, telephoneLisible } from '@/lib/i18n';
+import { moisLisible, prixLisible, t, telephoneLisible } from '@/lib/i18n';
 import { BONUS_KEYS, type Glacier, type Locale } from '@/lib/types';
 
 const VISAGES = { bof: '😐', sympa: '🙂', super: '🤩' } as const;
@@ -66,7 +66,7 @@ export function FicheGlacier({
         </section>
       )}
 
-      {teste && (g.size || g.price || g.welcome) && (
+      {teste && (
         <section className="fiche-section">
           <h3>{d.fiche.coupDoeil}</h3>
           {g.size && (
@@ -78,15 +78,18 @@ export function FicheGlacier({
               <span className="choix">🍦 {e.size[g.size]}</span>
             </div>
           )}
-          {g.price && (
-            <div className="ligne">
-              <span className="ligne-nom">
-                {d.fiche.prix}
-                <Echelle valeurs={[e.price['pas-cher'], e.price.norme, e.price.cher]} />
-              </span>
-              <span className="choix">💸 {e.price[g.price]}</span>
-            </div>
-          )}
+          {/* Le prix est un fait relevé sur place, pas une appréciation. */}
+          <div className="ligne">
+            <span className="ligne-nom">
+              {d.fiche.prix}
+              <span className="echelle">{d.fiche.laBoule}</span>
+            </span>
+            {g.price !== null ? (
+              <span className="choix">{prixLisible(g.price, locale)}</span>
+            ) : (
+              <span className="petit">{d.fiche.prixInconnu}</span>
+            )}
+          </div>
           {g.welcome && (
             <div className="ligne">
               <span className="ligne-nom">

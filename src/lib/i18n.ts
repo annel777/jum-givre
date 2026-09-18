@@ -1,4 +1,4 @@
-import type { BonusKey, Locale, Price, Size, Welcome } from './types';
+import type { BonusKey, Locale, Size, Welcome } from './types';
 
 export const LOCALES: Locale[] = ['fr', 'en'];
 
@@ -61,6 +61,8 @@ type Dict = {
     gout: string;
     taille: string;
     prix: string;
+    laBoule: string;
+    prixInconnu: string;
     accueil: string;
     bonusTitre: string;
     parfums: string;
@@ -85,12 +87,13 @@ type Dict = {
     intro: string;
     filtrer: string;
     tous: string;
+    prixMax: string;
+    jusqua: (prix: string) => string;
     resultats: (n: number) => string;
     aucun: string;
   };
   echelles: {
     size: Record<Size, string>;
-    price: Record<Price, string>;
     welcome: Record<Welcome, string>;
     bonus: Record<BonusKey, string>;
   };
@@ -139,6 +142,8 @@ const fr: Dict = {
     gout: 'Goût',
     taille: 'Taille',
     prix: 'Prix',
+    laBoule: 'la boule',
+    prixInconnu: 'Prix à relever',
     accueil: 'Accueil',
     bonusTitre: 'Points bonus',
     parfums: 'Parfums goûtés',
@@ -164,12 +169,13 @@ const fr: Dict = {
       'Tous les glaciers testés, du plus au moins aimé. Le classement additionne le goût, sur 5, et les points bonus, sur 7.',
     filtrer: 'Filtrer',
     tous: 'Tous',
+    prixMax: 'Prix maximum',
+    jusqua: (prix) => `Jusqu'à ${prix}`,
     resultats: (n) => `${n} ${n > 1 ? 'glaciers' : 'glacier'}`,
     aucun: 'Aucun glacier ne correspond à ce filtre.',
   },
   echelles: {
     size: { mini: 'Mini', normale: 'Normale', geante: 'Géante' },
-    price: { 'pas-cher': 'Pas cher', norme: 'Dans la norme', cher: 'Cher' },
     welcome: { bof: 'Bof', sympa: 'Sympa', super: 'Super' },
     bonus: {
       'bien-place': 'Bien placé',
@@ -226,6 +232,8 @@ const en: Dict = {
     gout: 'Taste',
     taille: 'Size',
     prix: 'Price',
+    laBoule: 'one scoop',
+    prixInconnu: 'Price still to be recorded',
     accueil: 'Welcome',
     bonusTitre: 'Bonus points',
     parfums: 'Flavours tasted',
@@ -251,12 +259,13 @@ const en: Dict = {
       'Every shop we tasted, from most to least loved. The ranking adds taste, out of 5, and bonus points, out of 7.',
     filtrer: 'Filter',
     tous: 'All',
+    prixMax: 'Maximum price',
+    jusqua: (prix) => `Up to ${prix}`,
     resultats: (n) => `${n} ${n > 1 ? 'shops' : 'shop'}`,
     aucun: 'No shop matches this filter.',
   },
   echelles: {
     size: { mini: 'Small', normale: 'Regular', geante: 'Giant' },
-    price: { 'pas-cher': 'Cheap', norme: 'Average', cher: 'Pricey' },
     welcome: { bof: 'Meh', sympa: 'Nice', super: 'Great' },
     bonus: {
       'bien-place': 'Good spot',
@@ -277,6 +286,14 @@ const DICTS: Record<Locale, Dict> = { fr, en };
 
 export function t(locale: Locale): Dict {
   return DICTS[locale];
+}
+
+/** Affiche 3.5 comme « 3,50 € » ou « €3.50 ». */
+export function prixLisible(euros: number, locale: Locale): string {
+  return new Intl.NumberFormat(locale === 'fr' ? 'fr-FR' : 'en-GB', {
+    style: 'currency',
+    currency: 'EUR',
+  }).format(euros);
 }
 
 /** Affiche « +33497067261 » comme « 04 97 06 72 61 ». Le lien tel: garde le format international. */

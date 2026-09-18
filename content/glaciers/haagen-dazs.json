@@ -3,20 +3,38 @@
   "name": "Häagen-Dazs",
   "status": "a-tester",
   "visitDate": null,
-  "area": { "fr": "Rue Hoche", "en": "Rue Hoche" },
+  "area": {
+    "fr": "Rue Hoche",
+    "en": "Rue Hoche"
+  },
   "taste": null,
   "size": null,
   "price": null,
   "welcome": null,
   "bonus": [],
-  "flavours": { "fr": [], "en": [] },
-  "liked": { "fr": [], "en": [] },
-  "disliked": { "fr": [], "en": [] },
-  "topping": { "fr": "", "en": "" },
+  "flavours": {
+    "fr": [],
+    "en": []
+  },
+  "liked": {
+    "fr": [],
+    "en": []
+  },
+  "disliked": {
+    "fr": [],
+    "en": []
+  },
+  "topping": {
+    "fr": "",
+    "en": ""
+  },
   "twins": [],
   "address": "Rue Hoche, 06400 Cannes",
   "coords": null,
-  "hours": { "fr": "", "en": "" },
+  "hours": {
+    "fr": "",
+    "en": ""
+  },
   "phone": null,
   "website": null
 }

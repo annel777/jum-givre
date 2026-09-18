@@ -3,20 +3,38 @@
   "name": "La Gelateria",
   "status": "a-tester",
   "visitDate": null,
-  "area": { "fr": "Le Suquet", "en": "Le Suquet" },
+  "area": {
+    "fr": "Le Suquet",
+    "en": "Le Suquet"
+  },
   "taste": null,
   "size": null,
   "price": null,
   "welcome": null,
   "bonus": [],
-  "flavours": { "fr": [], "en": [] },
-  "liked": { "fr": [], "en": [] },
-  "disliked": { "fr": [], "en": [] },
-  "topping": { "fr": "", "en": "" },
+  "flavours": {
+    "fr": [],
+    "en": []
+  },
+  "liked": {
+    "fr": [],
+    "en": []
+  },
+  "disliked": {
+    "fr": [],
+    "en": []
+  },
+  "topping": {
+    "fr": "",
+    "en": ""
+  },
   "twins": [],
   "address": "Place du Suquet, 06400 Cannes",
   "coords": null,
-  "hours": { "fr": "", "en": "" },
+  "hours": {
+    "fr": "",
+    "en": ""
+  },
   "phone": null,
   "website": null
 }

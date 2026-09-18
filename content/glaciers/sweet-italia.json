@@ -3,20 +3,38 @@
   "name": "Sweet Italia",
   "status": "a-tester",
   "visitDate": null,
-  "area": { "fr": "Vieux Port", "en": "Old harbour" },
+  "area": {
+    "fr": "Vieux Port",
+    "en": "Old harbour"
+  },
   "taste": null,
   "size": null,
   "price": null,
   "welcome": null,
   "bonus": [],
-  "flavours": { "fr": [], "en": [] },
-  "liked": { "fr": [], "en": [] },
-  "disliked": { "fr": [], "en": [] },
-  "topping": { "fr": "", "en": "" },
+  "flavours": {
+    "fr": [],
+    "en": []
+  },
+  "liked": {
+    "fr": [],
+    "en": []
+  },
+  "disliked": {
+    "fr": [],
+    "en": []
+  },
+  "topping": {
+    "fr": "",
+    "en": ""
+  },
   "twins": [],
   "address": "Vieux Port, 06400 Cannes",
   "coords": null,
-  "hours": { "fr": "", "en": "" },
+  "hours": {
+    "fr": "",
+    "en": ""
+  },
   "phone": null,
   "website": null
 }

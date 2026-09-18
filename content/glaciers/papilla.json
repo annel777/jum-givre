@@ -3,20 +3,38 @@
   "name": "Papilla",
   "status": "a-tester",
   "visitDate": null,
-  "area": { "fr": "Rue Félix Faure", "en": "Rue Félix Faure" },
+  "area": {
+    "fr": "Rue Félix Faure",
+    "en": "Rue Félix Faure"
+  },
   "taste": null,
   "size": null,
   "price": null,
   "welcome": null,
   "bonus": [],
-  "flavours": { "fr": [], "en": [] },
-  "liked": { "fr": [], "en": [] },
-  "disliked": { "fr": [], "en": [] },
-  "topping": { "fr": "", "en": "" },
+  "flavours": {
+    "fr": [],
+    "en": []
+  },
+  "liked": {
+    "fr": [],
+    "en": []
+  },
+  "disliked": {
+    "fr": [],
+    "en": []
+  },
+  "topping": {
+    "fr": "",
+    "en": ""
+  },
   "twins": [],
   "address": "81 rue Félix Faure, 06400 Cannes",
   "coords": null,
-  "hours": { "fr": "", "en": "" },
+  "hours": {
+    "fr": "",
+    "en": ""
+  },
   "phone": null,
   "website": null
 }
