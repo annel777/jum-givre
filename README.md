@@ -1,6 +1,6 @@
 # Les Jumeaux Givrés / The Frozen Twins
 
-Le guide des glaciers de Cannes, goûté et noté par deux jumeaux de 10 ans, les Scoop'ins.
+Le guide des glaciers de Cannes, goûté et noté par deux jumeaux de 10 ans, les jumeaux.
 Projet familial, non commercial, sans publicité ni lien d'affiliation.
 
 Pas de base de données : les fiches vivent dans git. Les pages publiques sont
@@ -65,7 +65,7 @@ FR et EN se mettent à jour au build.
   "liked": { "fr": [], "en": [] },
   "disliked": { "fr": [], "en": [] },
   "topping": { "fr": "", "en": "" },
-  "twins": [{ "nick": "Scoop'in n°1", "fr": "…", "en": "…" }],
+  "twins": [{ "nick": "Prénom 1", "fr": "…", "en": "…" }],
   "address": "81 rue Félix Faure, 06400 Cannes",
   "coords": [43.5512, 7.0159],
   "hours": { "fr": "12h à 23h", "en": "Midday to 11pm" },
@@ -110,6 +110,47 @@ Pour un cas douteux, à la main : ouvrir [openstreetmap.org](https://www.openstr
 clic droit sur la devanture, « Afficher l'adresse », recopier latitude puis longitude
 dans `coords`.
 
+## Ajouter un article
+
+Un article = un dossier dans `content/articles/`, avec `fr.mdx` et `en.mdx`. Le nom
+du dossier est le slug : il sert d'adresse dans les deux langues
+(`/articles/<slug>/` et `/en/articles/<slug>/`).
+
+```
+content/articles/vocabulaire-de-la-glace/
+  fr.mdx
+  en.mdx
+```
+
+L'en-tête de chaque fichier :
+
+```yaml
+---
+title: "Boule, cornet, sundae, topping : c'est quoi la différence ?"
+summary: "Une phrase, reprise sur l'index et dans la balise description."
+published: 2026-09-18
+updated: 2026-09-18
+glaciers:
+  - my-boule
+  - gelato-junkie
+---
+```
+
+`glaciers` est le maillage interne, et la règle du plan éditorial en dépend :
+
+- **au moins deux fiches par article**, listées ici ;
+- **au moins un article par fiche** : c'est automatique, chaque fiche affiche
+  « À lire aussi » avec les articles qui la citent.
+
+Dans le corps, deux composants sont disponibles :
+
+- `<LienFiche slug="my-boule" />` — un lien vers la fiche, qui va chercher le nom
+  du glacier tout seul, dans la bonne langue ;
+- `<ConseilGlacier>…</ConseilGlacier>` — l'encadré jaune récurrent.
+
+Les deux langues se publient le même jour, comme le veut le calendrier éditorial.
+Rien d'autre à toucher : l'index, le sitemap et les liens croisés suivent au build.
+
 ## Ce qui reste à faire avant la mise en ligne
 
 - [ ] Récupérer le téléphone de Vercel, obligatoire pour l'hébergeur
@@ -124,11 +165,13 @@ dans `coords`.
 
 ```
 content/glaciers/     un fichier JSON par glacier, la seule source de contenu
+content/articles/     un dossier par article, avec fr.mdx et en.mdx
 src/app/(fr)/         les pages françaises, servies à la racine
 src/app/(en)/en/      les pages anglaises, servies sous /en/
 src/vues/             une vue par type de page, partagée entre FR et EN
 src/components/       fiche, carte, classement, en-tête, pied de page
 src/lib/i18n.ts       toutes les chaînes FR et EN, et le plan des URL
+src/lib/articles.ts   lit les .mdx et construit le maillage fiches ↔ articles
 src/styles/           l'univers graphique Pop Riviera
 scripts/geocoder.mjs  remplit les coords des fiches depuis leurs adresses
 ```

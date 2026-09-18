@@ -118,11 +118,11 @@ function QuiSommesNous({ locale }: { locale: Locale }) {
   if (locale === 'fr') {
     return (
       <>
-        <h2>Les Scoop&apos;ins</h2>
+        <h2>Les jumeaux</h2>
         <p>
-          Deux jumeaux de 10 ans qui goûtent les glaciers de Cannes. Ils signent par leur surnom
-          seulement : pas de nom de famille, pas d&apos;école, pas de quartier, pas de photo de
-          visage. Les photos du site montrent des mains, des glaces et des devantures.
+          Deux jumeaux de 10 ans qui goûtent les glaciers de Cannes. Ils signent par leur prénom
+          ou leur surnom : pas de nom de famille, pas d&apos;école, pas de quartier, pas de photo
+          de visage. Les photos du site montrent des mains, des glaces et des devantures.
         </p>
         <p>
           Chaque contenu qui les concerne est publié avec leur accord à tous les deux.
@@ -143,10 +143,11 @@ function QuiSommesNous({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <h2>The Scoop&apos;ins</h2>
+      <h2>The twins</h2>
       <p>
         Two ten-year-old twins tasting their way through the ice cream shops of Cannes. They sign
-        with a nickname only: no surname, no school, no neighbourhood, no photo of their faces.
+        with a first name or a nickname: no surname, no school, no neighbourhood, no photo of
+        their faces.
         The pictures on this site show hands, ice creams and shopfronts.
       </p>
       <p>Everything published about them is published with both of them agreeing to it.</p>

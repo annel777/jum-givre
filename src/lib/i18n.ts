@@ -7,6 +7,7 @@ export const ROUTES = {
   home: { fr: '/', en: '/en/' },
   fiche: { fr: '/glaciers/', en: '/en/ice-cream/' },
   ranking: { fr: '/classement/', en: '/en/ranking/' },
+  articles: { fr: '/articles/', en: '/en/articles/' },
   method: { fr: '/notre-methode/', en: '/en/our-method/' },
   about: { fr: '/qui-sommes-nous/', en: '/en/about/' },
   legal: { fr: '/mentions-legales/', en: '/en/legal-notice/' },
@@ -89,6 +90,15 @@ type Dict = {
     resultats: (n: number) => string;
     aucun: string;
   };
+  articles: {
+    titre: string;
+    intro: string;
+    misAJour: (date: string) => string;
+    fichesCitees: string;
+    aLire: string;
+    aucun: string;
+    conseil: string;
+  };
   echelles: {
     size: Record<Size, string>;
     welcome: Record<Welcome, string>;
@@ -103,7 +113,7 @@ type Dict = {
 
 const fr: Dict = {
   marque: 'Les Jumeaux Givrés',
-  baseline: 'Les glaciers de Cannes, goûtés et notés par les Scoop’ins',
+  baseline: 'Les glaciers de Cannes, goûtés et notés par deux jumeaux de 10 ans',
   descriptionSite:
     'Le guide des glaciers de Cannes : boules, cornets, parfums et toppings goûtés et notés par deux jumeaux de 10 ans. Carte, classement et fiches, sans publicité ni partenariat.',
   langue: 'Langue',
@@ -112,6 +122,7 @@ const fr: Dict = {
     home: 'Accueil',
     fiche: 'Glaciers',
     ranking: 'Classement',
+    articles: 'Articles',
     method: 'Notre méthode',
     about: 'Qui sommes-nous',
     legal: 'Mentions légales',
@@ -154,12 +165,12 @@ const fr: Dict = {
     gpsManquant: 'GPS : à renseigner pour le marqueur de la carte',
     verifie: (date) => `Infos vérifiées en ${date}, à confirmer sur place.`,
     dateInconnue: 'Date de visite à renseigner. Les infos sont à confirmer sur place.',
-    pasEncoreTeste: 'Ce glacier n’est pas encore testé. Les Scoop’ins y passeront bientôt.',
+    pasEncoreTeste: 'Ce glacier n’est pas encore testé. Les jumeaux y passeront bientôt.',
     sur5: (n) => `${n.toString().replace('.', ',')} boules sur 5`,
     description: (nom, quartier, teste) =>
       teste
         ? `${nom}, glacier à Cannes (${quartier}) : notre note sur le goût, la taille des boules, le prix d’une boule, les parfums goûtés et le topping qu’on a adoré.`
-        : `${nom}, glacier à Cannes (${quartier}) : pas encore goûté par les Scoop’ins. Adresse, horaires et place sur la carte des glaciers de Cannes.`,
+        : `${nom}, glacier à Cannes (${quartier}) : pas encore goûté par les jumeaux. Adresse, horaires et place sur la carte des glaciers de Cannes.`,
     obtenu: 'Obtenu : ',
     nonObtenu: 'Non obtenu : ',
   },
@@ -173,6 +184,16 @@ const fr: Dict = {
     jusqua: (prix) => `Jusqu'à ${prix}`,
     resultats: (n) => `${n} ${n > 1 ? 'glaciers' : 'glacier'}`,
     aucun: 'Aucun glacier ne correspond à ce filtre.',
+  },
+  articles: {
+    titre: 'Les articles',
+    intro:
+      'Les glaces, les mots pour en parler, les techniques et les histoires qu’il y a derrière. Un article par semaine, en français et en anglais.',
+    misAJour: (date) => `Mis à jour en ${date}`,
+    fichesCitees: 'Les glaciers cités dans cet article',
+    aLire: 'À lire aussi',
+    aucun: 'Le premier article arrive bientôt.',
+    conseil: 'Le conseil de glacier',
   },
   echelles: {
     size: { mini: 'Mini', normale: 'Normale', geante: 'Géante' },
@@ -196,7 +217,7 @@ const fr: Dict = {
 
 const en: Dict = {
   marque: 'The Frozen Twins',
-  baseline: 'The ice cream shops of Cannes, tasted and rated by the Scoop’ins',
+  baseline: 'The ice cream shops of Cannes, tasted and rated by two ten-year-old twins',
   descriptionSite:
     'A guide to the ice cream shops of Cannes: scoops, cones, flavours and toppings tasted and rated by two ten-year-old twins. Map, ranking and reviews, with no ads and no partnerships.',
   langue: 'Language',
@@ -205,6 +226,7 @@ const en: Dict = {
     home: 'Home',
     fiche: 'Ice cream shops',
     ranking: 'Ranking',
+    articles: 'Articles',
     method: 'Our method',
     about: 'About',
     legal: 'Legal notice',
@@ -247,12 +269,12 @@ const en: Dict = {
     gpsManquant: 'GPS: still to be recorded for the map marker',
     verifie: (date) => `Checked in ${date}, please confirm on site.`,
     dateInconnue: 'Visit date still to be recorded. Please confirm the details on site.',
-    pasEncoreTeste: 'This shop has not been tasted yet. The Scoop’ins will drop by soon.',
+    pasEncoreTeste: 'This shop has not been tasted yet. The twins will drop by soon.',
     sur5: (n) => `${n} scoops out of 5`,
     description: (nom, quartier, teste) =>
       teste
         ? `${nom}, ice cream shop in Cannes (${quartier}): our taste rating, scoop size, price per scoop, the flavours we tried and the topping we loved.`
-        : `${nom}, ice cream shop in Cannes (${quartier}): not tasted yet by the Scoop’ins. Address, opening hours and its place on the Cannes ice cream map.`,
+        : `${nom}, ice cream shop in Cannes (${quartier}): not tasted yet by the twins. Address, opening hours and its place on the Cannes ice cream map.`,
     obtenu: 'Earned: ',
     nonObtenu: 'Not earned: ',
   },
@@ -266,6 +288,16 @@ const en: Dict = {
     jusqua: (prix) => `Up to ${prix}`,
     resultats: (n) => `${n} ${n > 1 ? 'shops' : 'shop'}`,
     aucun: 'No shop matches this filter.',
+  },
+  articles: {
+    titre: 'Articles',
+    intro:
+      'Ice cream, the words for it, the techniques and the stories behind them. One article a week, in French and in English.',
+    misAJour: (date) => `Updated in ${date}`,
+    fichesCitees: 'The shops mentioned in this article',
+    aLire: 'Read next',
+    aucun: 'The first article is coming soon.',
+    conseil: 'An ice cream maker’s tip',
   },
   echelles: {
     size: { mini: 'Small', normale: 'Regular', geante: 'Giant' },

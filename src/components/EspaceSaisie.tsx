@@ -24,8 +24,8 @@ const VIDE: Glacier = {
   disliked: { fr: [], en: [] },
   topping: { fr: '', en: '' },
   twins: [
-    { nick: 'Scoop’in n°1', fr: '', en: '' },
-    { nick: 'Scoop’in n°2', fr: '', en: '' },
+    { nick: '', fr: '', en: '' },
+    { nick: '', fr: '', en: '' },
   ],
   address: '',
   coords: null,
@@ -300,7 +300,7 @@ export function EspaceSaisie() {
       <h3>L’avis des jumeaux</h3>
       {fiche.twins.map((jumeau, i) => (
         <div key={i}>
-          <label htmlFor={`nick-${i}`}>Surnom</label>
+          <label htmlFor={`nick-${i}`}>Prénom ou surnom</label>
           <input
             id={`nick-${i}`}
             value={jumeau.nick}

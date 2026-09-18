@@ -810,3 +810,32 @@ section.fiche-section + section.fiche-section {
   border-radius: 12px;
   font-weight: 600;
 }
+
+/* Articles : vignettes d'index et encadré « Le conseil de glacier » */
+.vignette-article {
+  align-items: flex-start;
+}
+.vignette-article h3 {
+  margin-bottom: 4px;
+}
+.vignette-article .petit {
+  margin-top: 6px;
+  color: var(--ardoise);
+}
+.conseil {
+  margin: 22px 0;
+  background: var(--soleil);
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: var(--rayon);
+  box-shadow: 6px 6px 0 var(--mer-fonce);
+  padding: 16px 18px;
+}
+.conseil h3 {
+  font-family: var(--police-titre), cursive;
+  font-size: 1.2rem;
+  color: var(--fraise-fonce);
+  margin-bottom: 8px;
+}
+.conseil p:last-child {
+  margin-bottom: 0;
+}
