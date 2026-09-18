@@ -5,15 +5,17 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "npx serve out",
+    "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "geo": "node scripts/geocoder.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
+    "gray-matter": "^4.0.3",
     "leaflet": "^1.9.4",
     "next": "^16.3.5",
+    "next-mdx-remote": "^6.0.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-leaflet": "^5.0.0"

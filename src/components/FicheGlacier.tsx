@@ -82,7 +82,8 @@ export function FicheGlacier({
           <div className="ligne">
             <span className="ligne-nom">
               {d.fiche.prix}
-              <span className="echelle">{d.fiche.laBoule}</span>
+              {/* Tous les glaciers ne vendent pas à la boule : l'unité est dite. */}
+              {g.priceUnit && <span className="echelle">{e.unite[g.priceUnit]}</span>}
             </span>
             {g.price !== null ? (
               <span className="choix">{prixLisible(g.price, locale)}</span>

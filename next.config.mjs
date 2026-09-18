@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Site statique : pas de serveur, pas de base de données, pas de cookie.
-  output: 'export',
+  // Les pages publiques restent générées statiquement et ne posent aucun cookie.
+  // Seules les routes de /admin et /api/admin tournent côté serveur : le mot de
+  // passe ne doit jamais atteindre le navigateur.
   // Une URL par dossier, pour que /classement/ et /classement se comportent pareil.
   trailingSlash: true,
   images: {
