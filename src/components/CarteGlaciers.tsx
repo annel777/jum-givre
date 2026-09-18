@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 
 import type { PointCarte } from './carte-types';
-import { Cone, COULEUR_A_TESTER } from './Cone';
+import { Cone } from './Cone';
 
 /** Leaflet a besoin de `window` : la carte ne se charge que dans le navigateur. */
 const CarteLeaflet = dynamic(() => import('./CarteLeaflet'), {
@@ -28,7 +28,7 @@ export function CarteGlaciers({
         ) : (
           /* Pas de carte grise et muette tant qu'aucune adresse n'est relevée. */
           <div className="carte-vide">
-            <Cone taille={46} couleur={COULEUR_A_TESTER} ombre />
+            <Cone taille={46} ombre />
             <p>{textes.vide}</p>
           </div>
         )}
