@@ -39,8 +39,17 @@ export default function CarteLeaflet({
       zoomControl={false}
       className="leaflet-container"
     >
-      {/* L'attribution OpenStreetMap est obligatoire. */}
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution={attribution} />
+      {/*
+        Tuiles OpenStreetMap : gratuites, sans clé ni compte, et la politique
+        d'usage de la fondation vise les sites à faible trafic comme celui-ci.
+        L'attribution est obligatoire. Le style chargé d'OSM est repoussé au
+        second plan par un filtre CSS, voir .leaflet-tile-pane dans globals.css.
+      */}
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        maxZoom={19}
+        attribution={attribution}
+      />
       <ZoomControl position="topright" />
       {points.map((p) => (
         <Marker key={p.slug} position={p.coords} icon={icone(p.teste)}>

@@ -40,13 +40,7 @@ export function Accueil({ locale }: { locale: Locale }) {
           <p style={{ marginBottom: 12 }}>{d.accueil.carteIntro}</p>
           <CarteGlaciers
             points={points}
-            textes={{
-              testes: d.carte.testes,
-              bientot: d.carte.bientot,
-              vide: d.carte.vide,
-              attribution: d.carte.attribution,
-              legende: d.carte.legende,
-            }}
+            textes={{ vide: d.carte.vide, attribution: d.carte.attribution }}
             manquants={sansCoords > 0 ? d.carte.sansCoords(sansCoords) : null}
           />
         </section>
