@@ -30,7 +30,10 @@
   },
   "twins": [],
   "address": "81 rue Félix Faure, 06400 Cannes",
-  "coords": null,
+  "coords": [
+    43.5522772,
+    7.0144925
+  ],
   "hours": {
     "fr": "",
     "en": ""
