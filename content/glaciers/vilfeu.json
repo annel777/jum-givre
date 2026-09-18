@@ -1,0 +1,22 @@
+{
+  "slug": "vilfeu",
+  "name": "Vilfeu",
+  "status": "a-tester",
+  "visitDate": null,
+  "area": { "fr": "Palais des Festivals", "en": "Palais des Festivals" },
+  "taste": null,
+  "size": null,
+  "price": null,
+  "welcome": null,
+  "bonus": [],
+  "flavours": { "fr": [], "en": [] },
+  "liked": { "fr": [], "en": [] },
+  "disliked": { "fr": [], "en": [] },
+  "topping": { "fr": "", "en": "" },
+  "twins": [],
+  "address": "Près du Palais des Festivals, 06400 Cannes",
+  "coords": null,
+  "hours": { "fr": "", "en": "" },
+  "phone": null,
+  "website": null
+}
