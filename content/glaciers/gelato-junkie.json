@@ -1,0 +1,25 @@
+{
+  "slug": "gelato-junkie",
+  "name": "Gelato Junkie",
+  "status": "teste",
+  "visitDate": "2026-09",
+  "area": { "fr": "Rue Félix Faure, côté Vieux Port", "en": "Rue Félix Faure, near the old harbour" },
+  "taste": 5,
+  "size": "geante",
+  "price": "norme",
+  "welcome": "sympa",
+  "bonus": ["deco", "choix", "originaux", "light"],
+  "flavours": { "fr": [], "en": [] },
+  "liked": {
+    "fr": ["Les glaces light", "Le choix de parfums et les nouveautés"],
+    "en": ["The light ice creams", "The huge choice and new flavours"]
+  },
+  "disliked": { "fr": [], "en": [] },
+  "topping": { "fr": "", "en": "" },
+  "twins": [],
+  "address": "4 rue Félix Faure, 06400 Cannes",
+  "coords": null,
+  "hours": { "fr": "12h à 23h, tous les jours", "en": "Midday to 11pm, every day" },
+  "phone": null,
+  "website": null
+}

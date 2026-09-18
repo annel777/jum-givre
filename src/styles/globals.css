@@ -1,0 +1,623 @@
+/*
+  Univers Pop Riviera — affiche de plage années 60.
+  Les tokens viennent du brief ; --fraise-fonce est la variante texte du rose,
+  le rose d'origine ne passant pas le contraste AA sur blanc (2,9:1 contre 5,6:1).
+*/
+:root {
+  --soleil: #ffd23f;
+  --mer: #0a6ebd;
+  --mer-fonce: #063e6b;
+  --fraise: #ff5c8a;
+  --fraise-fonce: #c2255c;
+  --ciel: #cdebfa;
+  --blanc: #ffffff;
+  --trait: 2.5px;
+  --rayon: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--police-texte), system-ui, sans-serif;
+  background: var(--ciel);
+  color: var(--mer-fonce);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 18px 40px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--police-titre), cursive;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+a {
+  color: var(--mer);
+}
+
+:focus-visible {
+  outline: 3px solid var(--fraise-fonce);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Store de plage rayé, la signature visuelle du site */
+.store {
+  height: 70px;
+  background: repeating-linear-gradient(90deg, var(--mer) 0 44px, var(--blanc) 44px 88px);
+  position: relative;
+  flex: none;
+}
+.store::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -22px;
+  height: 22px;
+  background:
+    radial-gradient(circle at 22px 0, var(--mer) 21px, transparent 22px) 0 0 / 88px 22px repeat-x,
+    radial-gradient(circle at 66px 0, var(--blanc) 21px, transparent 22px) 0 0 / 88px 22px repeat-x;
+}
+
+/* Sélecteur de langue */
+.langues {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 36px 20px 0;
+}
+.langues a {
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--mer);
+  background: var(--blanc);
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: 999px;
+  padding: 4px 14px;
+}
+.langues a[aria-current='true'] {
+  background: var(--mer);
+  color: var(--blanc);
+}
+
+.entete {
+  text-align: center;
+  padding: 18px 20px 0;
+}
+.marque {
+  font-family: var(--police-titre), cursive;
+  font-size: clamp(2.1rem, 7.5vw, 3.6rem);
+  color: var(--fraise-fonce);
+  text-shadow: 4px 4px 0 var(--soleil);
+  transform: rotate(-3deg);
+  display: inline-block;
+  text-decoration: none;
+}
+.baseline {
+  margin-top: 16px;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+/* Navigation principale */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 18px 0;
+  list-style: none;
+}
+.nav a {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--mer-fonce);
+  background: var(--blanc);
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: 999px;
+  padding: 5px 14px;
+}
+.nav a[aria-current='page'] {
+  background: var(--soleil);
+}
+
+/* Cartes à contour épais et ombre portée décalée, sans flou */
+.carte-pop {
+  background: var(--blanc);
+  border: 4px solid var(--mer-fonce);
+  border-radius: 28px;
+  box-shadow: 10px 10px 0 var(--mer-fonce);
+  overflow: hidden;
+}
+
+.bloc + .bloc {
+  margin-top: 28px;
+}
+
+.titre-section {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  color: var(--fraise-fonce);
+  margin-bottom: 12px;
+}
+
+section.fiche-section {
+  padding: 24px;
+}
+section.fiche-section + section.fiche-section {
+  border-top: 3px dashed var(--ciel);
+}
+.fiche-section h3 {
+  font-size: 1.35rem;
+  color: var(--fraise-fonce);
+  margin-bottom: 14px;
+}
+.compteur {
+  font-family: var(--police-texte), sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--mer-fonce);
+}
+
+/* Bandeau haut de fiche */
+.fiche-haut {
+  background: var(--soleil);
+  padding: 26px 24px 22px;
+  border-bottom: 4px solid var(--mer-fonce);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.numero {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--fraise-fonce);
+  color: var(--blanc);
+  border: 3px solid var(--mer-fonce);
+  display: grid;
+  place-items: center;
+  font-family: var(--police-titre), cursive;
+  font-size: 1.6rem;
+}
+.fiche-haut h1 {
+  font-size: clamp(2rem, 7vw, 2.8rem);
+  color: var(--mer-fonce);
+}
+.fiche-haut .quartier {
+  font-weight: 600;
+  margin-top: 4px;
+}
+.note-gout {
+  margin-left: auto;
+  flex: none;
+  text-align: center;
+  background: var(--mer);
+  color: var(--blanc);
+  border: 3px solid var(--mer-fonce);
+  border-radius: 18px;
+  padding: 8px 14px;
+  transform: rotate(4deg);
+}
+.note-gout strong {
+  display: block;
+  font-family: var(--police-titre), cursive;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1.1;
+}
+.note-gout span {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Notes en boules de glace */
+.ligne {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+}
+.ligne-nom {
+  font-weight: 600;
+}
+.boules {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.boule {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: var(--trait) solid var(--mer-fonce);
+  background: var(--blanc);
+}
+.boule.pleine {
+  background: var(--fraise);
+}
+.boule.demi {
+  background: linear-gradient(90deg, var(--fraise) 50%, var(--blanc) 50%);
+}
+.valeur {
+  font-weight: 800;
+  min-width: 3.4em;
+  text-align: right;
+}
+
+/* Choix simples : taille, prix, accueil */
+.choix {
+  display: inline-block;
+  background: var(--soleil);
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: 999px;
+  padding: 4px 16px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.echelle {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #44708f;
+}
+
+/* Points bonus */
+.bonus {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.bonus li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: 16px;
+  padding: 8px 14px;
+  font-weight: 600;
+}
+.bonus li.gagne {
+  background: var(--soleil);
+  font-weight: 800;
+}
+.bonus li.perdu {
+  border-style: dashed;
+  background: var(--blanc);
+}
+.marque-bonus {
+  flex: none;
+  font-size: 1.1rem;
+  width: 1.4em;
+  text-align: center;
+}
+
+.pastilles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+}
+.pastille {
+  background: var(--ciel);
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-weight: 800;
+}
+
+.liste-avis {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.liste-avis li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-weight: 600;
+}
+.puce {
+  flex: none;
+  width: 1.3em;
+  text-align: center;
+}
+
+.coup-de-coeur {
+  background: var(--fraise-fonce);
+  color: var(--blanc);
+  border-radius: var(--rayon);
+  padding: 18px 20px;
+  border: 3px solid var(--mer-fonce);
+}
+.coup-de-coeur h3 {
+  color: var(--soleil);
+  margin-bottom: 6px;
+}
+.coup-de-coeur p {
+  font-weight: 600;
+}
+
+.avis {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.bulle {
+  background: var(--ciel);
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: 20px 20px 20px 4px;
+  padding: 14px;
+}
+.bulle:nth-child(even) {
+  border-radius: 20px 20px 4px 20px;
+  background: #fff3c4;
+}
+.bulle strong {
+  display: block;
+  font-family: var(--police-titre), cursive;
+  font-weight: 400;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+.bulle p {
+  font-style: italic;
+}
+
+.infos {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.infos li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.ico {
+  flex: none;
+  width: 28px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.infos a {
+  font-weight: 800;
+}
+.petit {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #44708f;
+}
+
+.encart {
+  margin-top: 16px;
+  background: var(--ciel);
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: 16px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Carte Leaflet */
+.carte-zone {
+  height: 380px;
+  border: 4px solid var(--mer-fonce);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 8px 8px 0 var(--mer-fonce);
+  background: var(--blanc);
+}
+.carte-zone .leaflet-container {
+  height: 100%;
+  width: 100%;
+  font: inherit;
+}
+.cone-marqueur {
+  transition: transform 0.15s ease-out;
+  transform-origin: bottom center;
+}
+.cone-marqueur:hover,
+.cone-marqueur:focus {
+  transform: scale(1.25);
+}
+
+/* Classement */
+.filtres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.filtre {
+  font: inherit;
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: var(--mer-fonce);
+  background: var(--blanc);
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+.filtre[aria-pressed='true'] {
+  background: var(--soleil);
+}
+
+.liste-glaciers {
+  list-style: none;
+  display: grid;
+  gap: 16px;
+}
+.vignette {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  text-decoration: none;
+  color: inherit;
+  background: var(--blanc);
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: var(--rayon);
+  box-shadow: 6px 6px 0 var(--mer-fonce);
+}
+.vignette h3 {
+  font-size: 1.3rem;
+  color: var(--mer-fonce);
+}
+.vignette .quartier {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #44708f;
+}
+.rang {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--fraise-fonce);
+  color: var(--blanc);
+  border: var(--trait) solid var(--mer-fonce);
+  display: grid;
+  place-items: center;
+  font-family: var(--police-titre), cursive;
+  font-size: 1.2rem;
+}
+.vignette-fin {
+  margin-left: auto;
+  text-align: right;
+}
+
+/* Contenu éditorial : méthode, mentions légales, confidentialité */
+.prose {
+  background: var(--blanc);
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: var(--rayon);
+  padding: 22px;
+}
+.prose h2 {
+  font-size: 1.4rem;
+  color: var(--fraise-fonce);
+  margin: 22px 0 10px;
+}
+.prose h2:first-child {
+  margin-top: 0;
+}
+.prose p,
+.prose li {
+  margin-bottom: 10px;
+}
+.prose ul,
+.prose ol {
+  padding-left: 22px;
+}
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 14px;
+}
+.prose th,
+.prose td {
+  border: 2px solid var(--mer-fonce);
+  padding: 8px 10px;
+  text-align: left;
+}
+.prose th {
+  background: var(--soleil);
+}
+
+/* Pied de page */
+.pied {
+  background: var(--blanc);
+  border-top: 4px solid var(--mer-fonce);
+  padding: 24px 18px 40px;
+  text-align: center;
+}
+.liens-pied {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 18px;
+  list-style: none;
+  font-weight: 800;
+}
+.pied-note {
+  margin-top: 14px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 540px) {
+  .fiche-haut {
+    flex-wrap: wrap;
+  }
+  .note-gout {
+    margin-left: 0;
+  }
+  .avis {
+    grid-template-columns: 1fr;
+  }
+  .boule {
+    width: 22px;
+    height: 22px;
+  }
+  .carte-zone {
+    height: 320px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .marque,
+  .note-gout,
+  .cone-marqueur {
+    transform: none;
+  }
+}
