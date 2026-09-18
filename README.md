@@ -32,6 +32,7 @@ FR et EN se mettent à jour au build.
   "taste": 4.5,
   "size": "geante",
   "price": 3.5,
+  "priceUnit": "boule",
   "welcome": "super",
   "bonus": ["terrasse", "choix"],
   "flavours": { "fr": ["Pistache"], "en": ["Pistachio"] },
@@ -52,7 +53,8 @@ FR et EN se mettent à jour au build.
 | `status` | `teste` (fiche complète) ou `a-tester` (seulement sur la carte) |
 | `taste` | 1 à 5, demi-points autorisés (`4.5`), `null` si pas encore testé |
 | `size` | `mini`, `normale`, `geante` |
-| `price` | le prix d'une boule en euros (`3.5`), ou `null` s'il n'est pas relevé |
+| `price` | le prix en euros (`3.5`), ou `null` s'il n'est pas relevé |
+| `priceUnit` | ce que ce prix achète : `boule`, `pot` ou `cornet`, ou `null` |
 | `welcome` | `bof`, `sympa`, `super` |
 | `bonus` | parmi `bien-place`, `terrasse`, `deco`, `choix`, `originaux`, `gouter`, `light` |
 | `coords` | `[latitude, longitude]`, ou `null` tant que le point n'est pas relevé |

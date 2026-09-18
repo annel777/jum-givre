@@ -29,8 +29,13 @@ function Methode({ locale }: { locale: Locale }) {
         </ul>
         <h2>Le prix</h2>
         <p>
-          Le prix n&apos;est pas noté et n&apos;est pas jugé. On relève simplement ce que coûte
-          une boule, en euros, le jour de la visite. À toi de décider si c&apos;est cher.
+          Le prix n&apos;est pas noté et n&apos;est pas jugé. On relève simplement ce que ça
+          coûte, en euros, le jour de la visite. À toi de décider si c&apos;est cher.
+        </p>
+        <p>
+          Tous les glaciers ne vendent pas la même chose : certains à la boule, d&apos;autres au
+          pot ou au cornet. Chaque fiche dit donc à quoi correspond son prix, pour qu&apos;on ne
+          compare pas un pot avec une boule.
         </p>
         <h2>Les 7 points bonus</h2>
         <p>Un point chacun, cochés ou non : </p>
@@ -75,8 +80,13 @@ function Methode({ locale }: { locale: Locale }) {
       </ul>
       <h2>The price</h2>
       <p>
-        Price is neither scored nor judged. We simply record what one scoop costs, in euros, on
-        the day we visited. Whether that is expensive is for you to decide.
+        Price is neither scored nor judged. We simply record what it costs, in euros, on the day
+        we visited. Whether that is expensive is for you to decide.
+      </p>
+      <p>
+        Shops don&apos;t all sell the same thing: some by the scoop, others by the cup or the
+        cone. Each review says what its price covers, so that a cup is never compared with a
+        scoop.
       </p>
       <h2>The 7 bonus points</h2>
       <p>One point each, ticked or not:</p>

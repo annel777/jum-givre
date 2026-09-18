@@ -3,6 +3,9 @@ export type Locale = 'fr' | 'en';
 export type Size = 'mini' | 'normale' | 'geante';
 export type Welcome = 'bof' | 'sympa' | 'super';
 
+/** Ce qu'on achète : tous les glaciers ne vendent pas à la boule. */
+export type Unite = 'boule' | 'pot' | 'cornet';
+
 /** Les 7 points bonus du brief, 1 point chacun. */
 export const BONUS_KEYS = [
   'bien-place',
@@ -32,8 +35,10 @@ export type Glacier = {
   /** La seule note chiffrée : le goût, de 1 à 5, demi-boules autorisées. */
   taste: number | null;
   size: Size | null;
-  /** Le prix d'une boule, en euros. Un fait relevé sur place, jamais une appréciation. */
+  /** Le prix d'une unité, en euros. Un fait relevé sur place, jamais une appréciation. */
   price: number | null;
+  /** L'unité vendue, qui change d'un glacier à l'autre : boule, pot ou cornet. */
+  priceUnit: Unite | null;
   welcome: Welcome | null;
   bonus: BonusKey[];
   flavours: BilingueListe;
