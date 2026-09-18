@@ -74,7 +74,6 @@ sur la devanture, « Afficher l'adresse », et recopier latitude puis longitude.
       ou société), nom complet du directeur de la publication, téléphone de Vercel
 - [ ] Faire relire les mentions légales et la politique de confidentialité
 - [ ] Relever les coordonnées GPS des 10 glaciers
-- [ ] Trancher les 3 domaines et lequel est le principal
 - [ ] Créer l'adresse `contact@jumeauxgivres.fr`
 - [ ] Remplacer les avis d'exemple des jumeaux par leurs vrais mots
 
@@ -113,8 +112,8 @@ Les trois domaines se règlent dans les réglages du projet Vercel, pas dans le 
 | Domaine | Réglage |
 | --- | --- |
 | `jumeauxgivres.fr` | domaine principal |
-| `jumeauxgivres.com` | redirection 301 vers `jumeauxgivres.fr` |
-| `frozentwins.fr` (à confirmer) | redirection 301 vers `jumeauxgivres.fr/en` |
+| `scoop-ins.com` | redirection 301 vers `jumeauxgivres.fr` |
+| `frozentwins.com` | redirection 301 vers `jumeauxgivres.fr/en` |
 
 Vercel redirige `www` vers le domaine nu et sert tout en HTTPS.
 
