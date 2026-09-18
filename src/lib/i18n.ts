@@ -79,6 +79,7 @@ type Dict = {
     dateInconnue: string;
     pasEncoreTeste: string;
     sur5: (n: number) => string;
+    description: (nom: string, quartier: string, teste: boolean) => string;
     obtenu: string;
     nonObtenu: string;
   };
@@ -106,7 +107,7 @@ const fr: Dict = {
   marque: 'Les Jumeaux Givrés',
   baseline: 'Les glaciers de Cannes, goûtés et notés par les Scoop’ins',
   descriptionSite:
-    'Le guide des glaciers de Cannes, testés et notés par deux jumeaux de 10 ans. Projet familial, sans publicité ni partenariat.',
+    'Le guide des glaciers de Cannes : boules, cornets, parfums et toppings goûtés et notés par deux jumeaux de 10 ans. Carte, classement et fiches, sans publicité ni partenariat.',
   langue: 'Langue',
   versLautreLangue: 'English',
   nav: {
@@ -160,6 +161,10 @@ const fr: Dict = {
     dateInconnue: 'Date de visite à renseigner. Les infos sont à confirmer sur place.',
     pasEncoreTeste: 'Ce glacier n’est pas encore testé. Les Scoop’ins y passeront bientôt.',
     sur5: (n) => `${n.toString().replace('.', ',')} boules sur 5`,
+    description: (nom, quartier, teste) =>
+      teste
+        ? `${nom}, glacier à Cannes (${quartier}) : notre note sur le goût, la taille des boules, le prix d’une boule, les parfums goûtés et le topping qu’on a adoré.`
+        : `${nom}, glacier à Cannes (${quartier}) : pas encore goûté par les Scoop’ins. Adresse, horaires et place sur la carte des glaciers de Cannes.`,
     obtenu: 'Obtenu : ',
     nonObtenu: 'Non obtenu : ',
   },
@@ -196,7 +201,7 @@ const en: Dict = {
   marque: 'The Frozen Twins',
   baseline: 'The ice cream shops of Cannes, tasted and rated by the Scoop’ins',
   descriptionSite:
-    'A guide to the ice cream shops of Cannes, tasted and rated by two ten-year-old twins. A family project, with no ads and no partnerships.',
+    'A guide to the ice cream shops of Cannes: scoops, cones, flavours and toppings tasted and rated by two ten-year-old twins. Map, ranking and reviews, with no ads and no partnerships.',
   langue: 'Language',
   versLautreLangue: 'Français',
   nav: {
@@ -250,6 +255,10 @@ const en: Dict = {
     dateInconnue: 'Visit date still to be recorded. Please confirm the details on site.',
     pasEncoreTeste: 'This shop has not been tasted yet. The Scoop’ins will drop by soon.',
     sur5: (n) => `${n} scoops out of 5`,
+    description: (nom, quartier, teste) =>
+      teste
+        ? `${nom}, ice cream shop in Cannes (${quartier}): our taste rating, scoop size, price per scoop, the flavours we tried and the topping we loved.`
+        : `${nom}, ice cream shop in Cannes (${quartier}): not tasted yet by the Scoop’ins. Address, opening hours and its place on the Cannes ice cream map.`,
     obtenu: 'Earned: ',
     nonObtenu: 'Not earned: ',
   },

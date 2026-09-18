@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { Fiche } from '@/vues/Fiche';
 import { glacierParSlug, tousLesGlaciers } from '@/lib/glaciers';
 import { metadonnees } from '@/lib/metadata';
+import { t } from '@/lib/i18n';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -21,7 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     page: 'fiche',
     slug,
     titre: glacier.name,
-    description: `${glacier.name} — ${glacier.area['fr']}`,
+    description: t('fr').fiche.description(
+      glacier.name,
+      glacier.area['fr'],
+      glacier.status === 'teste',
+    ),
   });
 }
 
