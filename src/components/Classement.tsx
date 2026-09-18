@@ -4,10 +4,9 @@ import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
 import { Boules } from './Boules';
-import { t } from '@/lib/i18n';
-import type { BonusKey, Glacier, Locale, Price, Size } from '@/lib/types';
+import { prixLisible, t } from '@/lib/i18n';
+import type { BonusKey, Glacier, Locale, Size } from '@/lib/types';
 
-const PRIX: Price[] = ['pas-cher', 'norme', 'cher'];
 const TAILLES: Size[] = ['mini', 'normale', 'geante'];
 const BONUS_FILTRES: BonusKey[] = ['terrasse', 'light'];
 
@@ -23,19 +22,28 @@ export function Classement({
   const d = t(locale);
   const e = d.echelles;
 
-  const [prix, setPrix] = useState<Price | null>(null);
+  const [prixMax, setPrixMax] = useState<number | null>(null);
   const [taille, setTaille] = useState<Size | null>(null);
   const [bonus, setBonus] = useState<BonusKey[]>([]);
+
+  /* Les seuils de prix viennent des fiches elles-mêmes, pas de tranches inventées. */
+  const prixReleves = useMemo(
+    () =>
+      [...new Set(glaciers.map((g) => g.price).filter((p): p is number => p !== null))].sort(
+        (a, b) => a - b,
+      ),
+    [glaciers],
+  );
 
   const visibles = useMemo(
     () =>
       glaciers.filter(
         (g) =>
-          (prix === null || g.price === prix) &&
+          (prixMax === null || (g.price !== null && g.price <= prixMax)) &&
           (taille === null || g.size === taille) &&
           bonus.every((b) => g.bonus.includes(b)),
       ),
-    [glaciers, prix, taille, bonus],
+    [glaciers, prixMax, taille, bonus],
   );
 
   function basculeBonus(key: BonusKey) {
@@ -46,22 +54,29 @@ export function Classement({
 
   return (
     <>
-      <div className="filtres" role="group" aria-label={`${d.classement.filtrer} — ${d.fiche.prix}`}>
-        <button type="button" className="filtre" aria-pressed={prix === null} onClick={() => setPrix(null)}>
-          {d.fiche.prix} : {d.classement.tous}
-        </button>
-        {PRIX.map((p) => (
+      {prixReleves.length > 1 && (
+        <div className="filtres" role="group" aria-label={`${d.classement.filtrer} — ${d.classement.prixMax}`}>
           <button
-            key={p}
             type="button"
             className="filtre"
-            aria-pressed={prix === p}
-            onClick={() => setPrix(prix === p ? null : p)}
+            aria-pressed={prixMax === null}
+            onClick={() => setPrixMax(null)}
           >
-            {e.price[p]}
+            {d.classement.prixMax} : {d.classement.tous}
           </button>
-        ))}
-      </div>
+          {prixReleves.map((p) => (
+            <button
+              key={p}
+              type="button"
+              className="filtre"
+              aria-pressed={prixMax === p}
+              onClick={() => setPrixMax(prixMax === p ? null : p)}
+            >
+              {d.classement.jusqua(prixLisible(p, locale))}
+            </button>
+          ))}
+        </div>
+      )}
 
       <div className="filtres" role="group" aria-label={`${d.classement.filtrer} — ${d.fiche.taille}`}>
         <button type="button" className="filtre" aria-pressed={taille === null} onClick={() => setTaille(null)}>
@@ -115,6 +130,7 @@ export function Classement({
                 <span className="vignette-fin">
                   {g.taste !== null && <Boules note={g.taste} locale={locale} />}
                   <span className="petit">
+                    {g.price !== null && `${prixLisible(g.price, locale)} · `}
                     {g.bonus.length} {d.fiche.bonusTitre.toLowerCase()}
                   </span>
                 </span>

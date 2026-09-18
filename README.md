@@ -31,7 +31,7 @@ FR et EN se mettent à jour au build.
   "area": { "fr": "Rue Félix Faure", "en": "Rue Félix Faure" },
   "taste": 4.5,
   "size": "geante",
-  "price": "norme",
+  "price": 3.5,
   "welcome": "super",
   "bonus": ["terrasse", "choix"],
   "flavours": { "fr": ["Pistache"], "en": ["Pistachio"] },
@@ -52,7 +52,7 @@ FR et EN se mettent à jour au build.
 | `status` | `teste` (fiche complète) ou `a-tester` (seulement sur la carte) |
 | `taste` | 1 à 5, demi-points autorisés (`4.5`), `null` si pas encore testé |
 | `size` | `mini`, `normale`, `geante` |
-| `price` | `pas-cher`, `norme`, `cher` |
+| `price` | le prix d'une boule en euros (`3.5`), ou `null` s'il n'est pas relevé |
 | `welcome` | `bof`, `sympa`, `super` |
 | `bonus` | parmi `bien-place`, `terrasse`, `deco`, `choix`, `originaux`, `gouter`, `light` |
 | `coords` | `[latitude, longitude]`, ou `null` tant que le point n'est pas relevé |
@@ -84,7 +84,8 @@ dans `coords`.
 
 - [ ] Récupérer le téléphone de Vercel, obligatoire pour l'hébergeur
 - [ ] Faire relire les mentions légales et la politique de confidentialité
-- [ ] Lancer `npm run geo` pour placer les 10 glaciers sur la carte
+- [ ] Placer les 8 glaciers « à tester » sur la carte (`npm run geo`, ou au fil
+      des visites)
 - [ ] Trancher l'adresse de contact : `contact@jumeauxgivres.fr` (à créer) ou
       une adresse `@leroy.cool`, comme sur les autres sites de la société
 - [ ] Remplacer les avis d'exemple des jumeaux par leurs vrais mots

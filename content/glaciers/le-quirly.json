@@ -3,20 +3,38 @@
   "name": "Le Quirly",
   "status": "a-tester",
   "visitDate": null,
-  "area": { "fr": "La Croisette", "en": "La Croisette" },
+  "area": {
+    "fr": "La Croisette",
+    "en": "La Croisette"
+  },
   "taste": null,
   "size": null,
   "price": null,
   "welcome": null,
   "bonus": [],
-  "flavours": { "fr": [], "en": [] },
-  "liked": { "fr": [], "en": [] },
-  "disliked": { "fr": [], "en": [] },
-  "topping": { "fr": "", "en": "" },
+  "flavours": {
+    "fr": [],
+    "en": []
+  },
+  "liked": {
+    "fr": [],
+    "en": []
+  },
+  "disliked": {
+    "fr": [],
+    "en": []
+  },
+  "topping": {
+    "fr": "",
+    "en": ""
+  },
   "twins": [],
   "address": "37 boulevard de la Croisette, 06400 Cannes",
   "coords": null,
-  "hours": { "fr": "", "en": "" },
+  "hours": {
+    "fr": "",
+    "en": ""
+  },
   "phone": null,
   "website": null
 }

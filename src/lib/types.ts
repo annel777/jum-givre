@@ -1,7 +1,6 @@
 export type Locale = 'fr' | 'en';
 
 export type Size = 'mini' | 'normale' | 'geante';
-export type Price = 'pas-cher' | 'norme' | 'cher';
 export type Welcome = 'bof' | 'sympa' | 'super';
 
 /** Les 7 points bonus du brief, 1 point chacun. */
@@ -33,7 +32,8 @@ export type Glacier = {
   /** La seule note chiffrée : le goût, de 1 à 5, demi-boules autorisées. */
   taste: number | null;
   size: Size | null;
-  price: Price | null;
+  /** Le prix d'une boule, en euros. Un fait relevé sur place, jamais une appréciation. */
+  price: number | null;
   welcome: Welcome | null;
   bonus: BonusKey[];
   flavours: BilingueListe;
