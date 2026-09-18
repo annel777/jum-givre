@@ -1,4 +1,5 @@
 import { Boules } from './Boules';
+import { Cone } from './Cone';
 import { moisLisible, t, telephoneLisible } from '@/lib/i18n';
 import { BONUS_KEYS, type Glacier, type Locale } from '@/lib/types';
 
@@ -198,8 +199,8 @@ export function FicheGlacier({
         <h3>{d.fiche.infos}</h3>
         <ul className="infos">
           <li>
-            <span className="ico" aria-hidden="true">
-              📍
+            <span className="ico">
+              <Cone taille={17} />
             </span>
             <span>
               {g.address}

@@ -63,16 +63,28 @@ Ce total ordonne les glaciers, il n'est jamais affiché comme une note.
 
 ### Relever les coordonnées
 
-Les coordonnées ne sont pas devinées : tant que `coords` vaut `null`, le glacier
-n'apparaît pas sur la carte et l'accueil affiche combien il en manque. Pour en
-relever une : ouvrir [openstreetmap.org](https://www.openstreetmap.org), clic droit
-sur la devanture, « Afficher l'adresse », et recopier latitude puis longitude.
+Les coordonnées ne sont jamais devinées : tant que `coords` vaut `null`, le glacier
+n'apparaît pas sur la carte. Une commande les déduit des adresses déjà saisies :
+
+```bash
+npm run geo              # remplit les coords manquantes
+npm run geo -- --force   # regéocode tout, même ce qui est déjà rempli
+```
+
+Le script interroge l'[API Adresse](https://adresse.data.gouv.fr) (Base Adresse
+Nationale), service public gratuit et sans clé, et n'écrit une coordonnée que si
+l'adresse trouvée est assez sûre. Les cas douteux sont listés à la fin et laissés
+à `null`, pour qu'un point approximatif ne se glisse pas dans les données.
+
+Pour un cas douteux, à la main : ouvrir [openstreetmap.org](https://www.openstreetmap.org),
+clic droit sur la devanture, « Afficher l'adresse », recopier latitude puis longitude
+dans `coords`.
 
 ## Ce qui reste à faire avant la mise en ligne
 
 - [ ] Récupérer le téléphone de Vercel, obligatoire pour l'hébergeur
 - [ ] Faire relire les mentions légales et la politique de confidentialité
-- [ ] Relever les coordonnées GPS des 10 glaciers
+- [ ] Lancer `npm run geo` pour placer les 10 glaciers sur la carte
 - [ ] Trancher l'adresse de contact : `contact@jumeauxgivres.fr` (à créer) ou
       une adresse `@leroy.cool`, comme sur les autres sites de la société
 - [ ] Remplacer les avis d'exemple des jumeaux par leurs vrais mots
@@ -87,6 +99,7 @@ src/vues/             une vue par type de page, partagée entre FR et EN
 src/components/       fiche, carte, classement, en-tête, pied de page
 src/lib/i18n.ts       toutes les chaînes FR et EN, et le plan des URL
 src/styles/           l'univers graphique Pop Riviera
+scripts/geocoder.mjs  remplit les coords des fiches depuis leurs adresses
 ```
 
 Les deux langues ont chacune leur mise en page racine (`app/(fr)` et `app/(en)`),

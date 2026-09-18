@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "npx serve out",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "geo": "node scripts/geocoder.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
