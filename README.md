@@ -70,8 +70,9 @@ sur la devanture, « Afficher l'adresse », et recopier latitude puis longitude.
 
 ## Ce qui reste à faire avant la mise en ligne
 
-- [ ] Remplir les blocs `[à compléter]` des mentions légales : éditeur (particulier
-      ou société), nom complet du directeur de la publication, téléphone de Vercel
+- [ ] Confirmer que Studio Leroy est bien le nom commercial de LEROY SAS :
+      l'identité des mentions légales est reprise de celle publiée sur mymeno.fr
+- [ ] Récupérer le téléphone de Vercel, obligatoire pour l'hébergeur
 - [ ] Faire relire les mentions légales et la politique de confidentialité
 - [ ] Relever les coordonnées GPS des 10 glaciers
 - [ ] Créer l'adresse `contact@jumeauxgivres.fr`

@@ -153,20 +153,21 @@ function MentionsLegales({ locale }: { locale: Locale }) {
     <>
       <h2>{fr ? 'Éditeur du site' : 'Site publisher'}</h2>
       <p>
-        {ACOMPLETER}{' '}
-        {fr
-          ? '— deux options à trancher : soit un particulier (nom, prénom, adresse, e-mail), soit la SAS (dénomination, forme, capital, siège, numéro RCS, e-mail, téléphone).'
-          : '— two options to settle: either a private individual (name, address, email) or the company (name, legal form, share capital, registered office, trade register number, email, phone).'}
-      </p>
-      <h2>{fr ? 'Directeur de la publication' : 'Publication director'}</h2>
-      <p>
-        Anne {ACOMPLETER}
-        {fr ? ' (nom complet).' : ' (full name).'}
-      </p>
-      <h2>Contact</h2>
-      <p>
+        {fr ? 'Studio Leroy, nom commercial de LEROY SAS' : 'Studio Leroy, trading name of LEROY SAS'}
+        <br />
+        {fr ? 'Société par actions simplifiée au capital de 1 000 €' : 'Simplified joint-stock company, share capital €1,000'}
+        <br />
+        {fr ? 'Siège social : ' : 'Registered office: '}210 boulevard Leader, 06400 Cannes
+        {fr ? '' : ', France'}
+        <br />
+        SIRET : 987 771 276 00019
+        <br />
+        {fr ? 'TVA intracommunautaire : ' : 'VAT number: '}FR21987771276
+        <br />
         <a href={`mailto:${SITE.contact}`}>{SITE.contact}</a>
       </p>
+      <h2>{fr ? 'Directeur de la publication' : 'Publication director'}</h2>
+      <p>Anne Leroy</p>
       <h2>{fr ? 'Hébergeur' : 'Hosting provider'}</h2>
       <p>
         Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, {fr ? 'États-Unis' : 'United States'}
