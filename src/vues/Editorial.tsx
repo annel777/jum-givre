@@ -233,8 +233,8 @@ function Confidentialite({ locale }: { locale: Locale }) {
       <h2>{fr ? 'Aucun cookie' : 'No cookies'}</h2>
       <p>
         {fr
-          ? 'Le site ne dépose aucun cookie, il n’y a donc pas de bandeau à accepter. Tout ajout d’un outil tiers imposerait de revoir ce point.'
-          : 'This site sets no cookies, so there is no banner to accept. Adding any third-party tool would mean revisiting this.'}
+          ? 'Aucun cookie n’est déposé sur votre navigateur, il n’y a donc pas de bandeau à accepter. Le site a bien un espace de saisie réservé à son éditeur, protégé par mot de passe, qui pose un cookie de session — mais uniquement pour la personne qui s’y connecte, jamais pour les visiteurs. Tout ajout d’un outil tiers imposerait de revoir ce point.'
+          : 'No cookie is set on your browser, so there is no banner to accept. The site does have a password-protected editing space for its publisher, which sets a session cookie — but only for whoever signs in there, never for visitors. Adding any third-party tool would mean revisiting this.'}
       </p>
       <h2>{fr ? 'Mesure d’audience' : 'Analytics'}</h2>
       <p>

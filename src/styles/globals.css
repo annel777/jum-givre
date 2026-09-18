@@ -746,3 +746,67 @@ section.fiche-section + section.fiche-section {
     transform: none;
   }
 }
+
+/* Espace de saisie : une page de travail, pas une page du site */
+.saisie {
+  margin-top: 28px;
+}
+.saisie h3 {
+  font-family: var(--police-titre), cursive;
+  font-size: 1.2rem;
+  color: var(--fraise-fonce);
+  margin: 26px 0 10px;
+}
+.saisie label {
+  display: block;
+  margin: 14px 0 4px;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+.saisie input,
+.saisie select,
+.saisie textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--mer-fonce);
+  background: var(--blanc);
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: 12px;
+  padding: 8px 12px;
+}
+.saisie textarea {
+  resize: vertical;
+}
+.saisie button {
+  margin-top: 24px;
+  font-size: 1rem;
+  padding: 10px 22px;
+  background: var(--soleil);
+}
+.saisie button[disabled] {
+  opacity: 0.6;
+  cursor: progress;
+}
+.saisie-bonus {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+.saisie-bonus label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-weight: 600;
+}
+.saisie-bonus input {
+  width: auto;
+}
+.saisie-erreur {
+  margin-top: 16px;
+  padding: 10px 14px;
+  background: var(--saumon);
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: 12px;
+  font-weight: 600;
+}
