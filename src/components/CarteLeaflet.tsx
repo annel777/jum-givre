@@ -39,8 +39,18 @@ export default function CarteLeaflet({
       zoomControl={false}
       className="leaflet-container"
     >
-      {/* L'attribution OpenStreetMap est obligatoire. */}
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution={attribution} />
+      {/*
+        Fond CARTO Positron : quasi monochrome, pour que les cornets ressortent.
+        Les données restent celles d'OpenStreetMap ; les deux attributions sont
+        obligatoires, celle d'OSM pour les données et celle de CARTO pour le fond.
+      */}
+      <TileLayer
+        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+        subdomains="abcd"
+        maxZoom={20}
+        detectRetina
+        attribution={attribution}
+      />
       <ZoomControl position="topright" />
       {points.map((p) => (
         <Marker key={p.slug} position={p.coords} icon={icone(p.teste)}>

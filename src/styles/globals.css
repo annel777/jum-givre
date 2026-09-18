@@ -454,10 +454,6 @@ section.fiche-section + section.fiche-section {
   font: inherit;
   background: var(--ciel);
 }
-/* Le fond de carte recule d'un cran pour que les cornets ressortent. */
-.carte-zone .leaflet-tile {
-  filter: saturate(0.72) brightness(1.06);
-}
 .carte-chargement {
   height: 100%;
   background: var(--ciel);

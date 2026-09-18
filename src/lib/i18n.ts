@@ -134,7 +134,8 @@ const fr: Dict = {
     sansCoords: (n) =>
       `${n} ${n > 1 ? 'glaciers ne sont pas encore placés' : 'glacier n’est pas encore placé'} sur la carte : coordonnées à relever.`,
     vide: 'Aucun glacier n’est encore placé sur la carte. Les cornets apparaîtront dès que les adresses seront relevées.',
-    attribution: 'Fond de carte © contributeurs OpenStreetMap',
+    attribution:
+      'Données &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &middot; fond de carte &copy; <a href="https://carto.com/attributions">CARTO</a>',
     legende: 'Légende de la carte',
   },
   fiche: {
@@ -228,7 +229,8 @@ const en: Dict = {
     sansCoords: (n) =>
       `${n} ${n > 1 ? 'shops are' : 'shop is'} not on the map yet: coordinates still to be recorded.`,
     vide: 'No shop is on the map yet. The cones will appear as soon as the addresses are recorded.',
-    attribution: 'Map data © OpenStreetMap contributors',
+    attribution:
+      'Data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &middot; basemap &copy; <a href="https://carto.com/attributions">CARTO</a>',
     legende: 'Map legend',
   },
   fiche: {
