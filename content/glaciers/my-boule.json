@@ -3,32 +3,73 @@
   "name": "My Boule",
   "status": "teste",
   "visitDate": null,
-  "area": { "fr": "Carré d'Or, à deux pas de la Croisette", "en": "Carré d'Or, a short walk from the Croisette" },
+  "area": {
+    "fr": "Carré d'Or, à deux pas de la Croisette",
+    "en": "Carré d'Or, a short walk from the Croisette"
+  },
   "taste": 4,
   "size": "geante",
   "price": "cher",
   "welcome": "super",
-  "bonus": ["bien-place", "terrasse", "originaux", "light"],
-  "flavours": { "fr": ["Oreo", "Spéculos"], "en": ["Oreo", "Speculoos"] },
+  "bonus": [
+    "bien-place",
+    "terrasse",
+    "originaux",
+    "light"
+  ],
+  "flavours": {
+    "fr": [
+      "Oreo",
+      "Spéculos"
+    ],
+    "en": [
+      "Oreo",
+      "Speculoos"
+    ]
+  },
   "liked": {
-    "fr": ["Les boules énormes, on en a pour son argent", "Les parfums vegan et sans sucre, il y a le choix"],
-    "en": ["Huge scoops, you get your money's worth", "The vegan and sugar-free flavours, there is real choice"]
+    "fr": [
+      "Les boules énormes, on en a pour son argent",
+      "Les parfums vegan et sans sucre, il y a le choix"
+    ],
+    "en": [
+      "Huge scoops, you get your money's worth",
+      "The vegan and sugar-free flavours, there is real choice"
+    ]
   },
   "disliked": {
-    "fr": ["Le prix, c'est la glace la plus chère de la rue"],
-    "en": ["The price, the most expensive ice cream on the street"]
+    "fr": [
+      "Le prix, c'est la glace la plus chère de la rue"
+    ],
+    "en": [
+      "The price, the most expensive ice cream on the street"
+    ]
   },
   "topping": {
     "fr": "Les mini marshmallows ! Et la version signature, avec coulis maison sur la boule.",
     "en": "The mini marshmallows! And the signature version, with homemade sauce over the scoop."
   },
   "twins": [
-    { "nick": "Scoop'in n°1", "fr": "Son avis ici, avec ses mots à lui ou à elle.", "en": "Their own words go here." },
-    { "nick": "Scoop'in n°2", "fr": "Son avis ici, avec ses mots à lui ou à elle.", "en": "Their own words go here." }
+    {
+      "nick": "Scoop'in n°1",
+      "fr": "Son avis ici, avec ses mots à lui ou à elle.",
+      "en": "Their own words go here."
+    },
+    {
+      "nick": "Scoop'in n°2",
+      "fr": "Son avis ici, avec ses mots à lui ou à elle.",
+      "en": "Their own words go here."
+    }
   ],
   "address": "32 rue du Commandant André, 06400 Cannes",
-  "coords": null,
-  "hours": { "fr": "Tous les jours, 9h30 à 18h30", "en": "Every day, 9.30am to 6.30pm" },
+  "coords": [
+    43.5507123,
+    7.020178
+  ],
+  "hours": {
+    "fr": "Tous les jours, 9h30 à 18h30",
+    "en": "Every day, 9.30am to 6.30pm"
+  },
   "phone": "+33497067261",
   "website": "https://myboule.fr"
 }

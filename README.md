@@ -84,7 +84,8 @@ dans `coords`.
 
 - [ ] Récupérer le téléphone de Vercel, obligatoire pour l'hébergeur
 - [ ] Faire relire les mentions légales et la politique de confidentialité
-- [ ] Lancer `npm run geo` pour placer les 10 glaciers sur la carte
+- [ ] Placer les 8 glaciers « à tester » sur la carte (`npm run geo`, ou au fil
+      des visites)
 - [ ] Trancher l'adresse de contact : `contact@jumeauxgivres.fr` (à créer) ou
       une adresse `@leroy.cool`, comme sur les autres sites de la société
 - [ ] Remplacer les avis d'exemple des jumeaux par leurs vrais mots
