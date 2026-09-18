@@ -460,13 +460,13 @@ section.fiche-section + section.fiche-section {
 }
 
 /*
-  Le style OpenStreetMap standard est très coloré : routes rouges et jaunes,
-  libellés partout. Sous des cornets roses, tout se bagarre. Le filtre ne
-  porte que sur le calque des tuiles, donc marqueurs, bulles et boutons
-  gardent leurs couleurs franches.
+  Le fond passe en gris clair : c'est la carte la plus simple possible.
+  Il ne reste que la géographie, et toute la couleur revient aux cornets.
+  Le filtre ne porte que sur le calque des tuiles, donc marqueurs, bulles
+  et boutons gardent leurs couleurs franches.
 */
 .carte-zone .leaflet-tile-pane {
-  filter: saturate(0.4) brightness(1.12) contrast(0.86);
+  filter: grayscale(1) brightness(1.08) contrast(0.82);
 }
 
 .cone-marqueur {
@@ -554,28 +554,6 @@ section.fiche-section + section.fiche-section {
   color: var(--mer-fonce);
 }
 
-/* Légende */
-.carte-legende {
-  position: absolute;
-  left: 12px;
-  bottom: 34px;
-  z-index: 400;
-  list-style: none;
-  display: grid;
-  gap: 4px;
-  padding: 8px 12px;
-  background: var(--blanc);
-  border: var(--trait) solid var(--mer-fonce);
-  border-radius: 14px;
-  box-shadow: 4px 4px 0 var(--mer-fonce);
-  font-size: 0.8rem;
-  font-weight: 800;
-}
-.carte-legende li {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
 
 /* Tant qu'aucune adresse n'est relevée, pas de carte grise et muette */
 .carte-vide {
@@ -734,10 +712,6 @@ section.fiche-section + section.fiche-section {
   }
   .carte-zone {
     height: 340px;
-  }
-  .carte-legende {
-    font-size: 0.72rem;
-    padding: 6px 10px;
   }
 }
 
