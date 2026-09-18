@@ -25,7 +25,11 @@ export function autreLangue(locale: Locale): Locale {
 
 export const SITE = {
   domaine: 'https://jumeauxgivres.fr',
-  contact: 'contact@jumeauxgivres.fr',
+  // L'adresse de contact est gardée en deux morceaux : recollée en clair ici,
+  // le minifieur l'écrirait entière dans le bundle, où un robot la lirait.
+  // Le composant Courriel les rassemble, à l'exécution seulement.
+  contactUtilisateur: 'studio',
+  contactDomaine: 'leroy.cool',
 } as const;
 
 type Dict = {

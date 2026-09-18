@@ -70,12 +70,11 @@ sur la devanture, « Afficher l'adresse », et recopier latitude puis longitude.
 
 ## Ce qui reste à faire avant la mise en ligne
 
-- [ ] Confirmer que Studio Leroy est bien le nom commercial de LEROY SAS :
-      l'identité des mentions légales est reprise de celle publiée sur mymeno.fr
 - [ ] Récupérer le téléphone de Vercel, obligatoire pour l'hébergeur
 - [ ] Faire relire les mentions légales et la politique de confidentialité
 - [ ] Relever les coordonnées GPS des 10 glaciers
-- [ ] Créer l'adresse `contact@jumeauxgivres.fr`
+- [ ] Trancher l'adresse de contact : `contact@jumeauxgivres.fr` (à créer) ou
+      une adresse `@leroy.cool`, comme sur les autres sites de la société
 - [ ] Remplacer les avis d'exemple des jumeaux par leurs vrais mots
 
 ## Structure

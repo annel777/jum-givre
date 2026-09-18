@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { ROUTES, SITE, autreLangue, chemin, t, type RouteKey } from '@/lib/i18n';
+import { ROUTES, autreLangue, chemin, t, type RouteKey } from '@/lib/i18n';
 import type { Locale } from '@/lib/types';
 
 /** Le store de plage rayé à bord festonné, en haut de chaque page. */
@@ -75,7 +75,8 @@ export function Pied({ locale }: { locale: Locale }) {
           <Link href={chemin('privacy', locale)}>{d.nav.privacy}</Link>
         </li>
         <li>
-          <a href={`mailto:${SITE.contact}`}>Contact</a>
+          {/* L'adresse vit sur la page des mentions légales, épelée. */}
+          <Link href={chemin('legal', locale)}>Contact</Link>
         </li>
         <li>
           <Link href={ROUTES.home[autre]} hrefLang={autre}>

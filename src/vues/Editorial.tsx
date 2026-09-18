@@ -1,5 +1,6 @@
+import { Courriel } from '@/components/Courriel';
 import { Entete, Pied } from '@/components/SiteChrome';
-import { SITE, t, type RouteKey } from '@/lib/i18n';
+import { t, type RouteKey } from '@/lib/i18n';
 import type { Locale } from '@/lib/types';
 
 /**
@@ -116,7 +117,7 @@ function QuiSommesNous({ locale }: { locale: Locale }) {
         </p>
         <h2>Nous écrire</h2>
         <p>
-          Une erreur, une adresse qui a changé, un droit de réponse : <a href={`mailto:${SITE.contact}`}>{SITE.contact}</a>.
+          Une erreur, une adresse qui a changé, un droit de réponse : <Courriel />.
         </p>
       </>
     );
@@ -140,7 +141,7 @@ function QuiSommesNous({ locale }: { locale: Locale }) {
       <h2>Contact</h2>
       <p>
         A mistake, an address that changed, a right of reply:{' '}
-        <a href={`mailto:${SITE.contact}`}>{SITE.contact}</a>.
+        <Courriel />.
       </p>
     </>
   );
@@ -153,7 +154,7 @@ function MentionsLegales({ locale }: { locale: Locale }) {
     <>
       <h2>{fr ? 'Éditeur du site' : 'Site publisher'}</h2>
       <p>
-        {fr ? 'Studio Leroy, nom commercial de LEROY SAS' : 'Studio Leroy, trading name of LEROY SAS'}
+        {fr ? 'LEROY SAS — marque Studio Leroy' : 'LEROY SAS — trading as Studio Leroy'}
         <br />
         {fr ? 'Société par actions simplifiée au capital de 1 000 €' : 'Simplified joint-stock company, share capital €1,000'}
         <br />
@@ -164,7 +165,7 @@ function MentionsLegales({ locale }: { locale: Locale }) {
         <br />
         {fr ? 'TVA intracommunautaire : ' : 'VAT number: '}FR21987771276
         <br />
-        <a href={`mailto:${SITE.contact}`}>{SITE.contact}</a>
+        <Courriel />
       </p>
       <h2>{fr ? 'Directeur de la publication' : 'Publication director'}</h2>
       <p>Anne Leroy</p>
@@ -246,7 +247,7 @@ function Confidentialite({ locale }: { locale: Locale }) {
         {fr
           ? 'Accès, rectification, effacement : écrivez à '
           : 'Access, correction, erasure: write to '}
-        <a href={`mailto:${SITE.contact}`}>{SITE.contact}</a>
+        <Courriel />
         {fr
           ? '. Vous pouvez aussi saisir la CNIL.'
           : '. You may also lodge a complaint with the CNIL, the French data protection authority.'}
