@@ -1,16 +1,31 @@
 /*
   Univers Pop Riviera — affiche de plage années 60.
-  Les tokens viennent du brief ; --fraise-fonce est la variante texte du rose,
-  le rose d'origine ne passant pas le contraste AA sur blanc (2,9:1 contre 5,6:1).
+
+  Les quatre pastels sont la palette demandée. Aucun ne porte du texte blanc
+  (1,1:1 à 2,2:1), ils ne servent donc que d'aplats. Trois couleurs de support
+  les accompagnent, chacune vérifiée au contraste :
+
+    --mer-fonce  encre : texte, contours, ombres. 4,98:1 à 10:1 sur les pastels
+    --mer        liens et badges. 5,5:1 sur le bleu, 8,2:1 en blanc dessus
+    --ardoise    texte secondaire. 8,1:1 sur blanc, 5,4:1 sur le bleu
+
+  --fraise-fonce est la variante texte du rose : le rose pastel ne passe pas
+  sur blanc, sa version foncée est à 6,6:1 et porte du blanc au même ratio.
 */
 :root {
-  --soleil: #ffd23f;
-  --mer: #0a6ebd;
+  /* La palette */
+  --ciel: #9adcff;
+  --soleil: #fff89a;
+  --saumon: #ffb2a6;
+  --fraise: #ff8aae;
+
+  /* Les couleurs de support, imposées par la lisibilité */
+  --fraise-fonce: #b02350;
+  --mer: #0b5285;
   --mer-fonce: #063e6b;
-  --fraise: #ff5c8a;
-  --fraise-fonce: #c2255c;
-  --ciel: #cdebfa;
+  --ardoise: #345368;
   --blanc: #ffffff;
+
   --trait: 2.5px;
   --rayon: 20px;
 }
@@ -76,7 +91,7 @@ a {
 /* Store de plage rayé, la signature visuelle du site */
 .store {
   height: 70px;
-  background: repeating-linear-gradient(90deg, var(--mer) 0 44px, var(--blanc) 44px 88px);
+  background: repeating-linear-gradient(90deg, var(--fraise) 0 44px, var(--blanc) 44px 88px);
   position: relative;
   flex: none;
 }
@@ -88,7 +103,7 @@ a {
   bottom: -22px;
   height: 22px;
   background:
-    radial-gradient(circle at 22px 0, var(--mer) 21px, transparent 22px) 0 0 / 88px 22px repeat-x,
+    radial-gradient(circle at 22px 0, var(--fraise) 21px, transparent 22px) 0 0 / 88px 22px repeat-x,
     radial-gradient(circle at 66px 0, var(--blanc) 21px, transparent 22px) 0 0 / 88px 22px repeat-x;
 }
 
@@ -298,7 +313,7 @@ section.fiche-section + section.fiche-section {
   margin-top: 2px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #44708f;
+  color: var(--ardoise);
 }
 
 /* Points bonus */
@@ -390,7 +405,7 @@ section.fiche-section + section.fiche-section {
 }
 .bulle:nth-child(even) {
   border-radius: 20px 20px 4px 20px;
-  background: #fff3c4;
+  background: var(--saumon);
 }
 .bulle strong {
   display: block;
@@ -425,7 +440,7 @@ section.fiche-section + section.fiche-section {
 .petit {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #44708f;
+  color: var(--ardoise);
 }
 
 .encart {
@@ -617,7 +632,7 @@ section.fiche-section + section.fiche-section {
 .vignette .quartier {
   font-weight: 600;
   font-size: 0.9rem;
-  color: #44708f;
+  color: var(--ardoise);
 }
 .rang {
   flex: none;

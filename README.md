@@ -139,15 +139,22 @@ contours épais et ombres portées sans flou. Les tokens sont définis en haut d
 
 | Token | Couleur | Usage |
 | --- | --- | --- |
-| `--soleil` | `#FFD23F` | bandeaux, pastilles |
-| `--mer` | `#0A6EBD` | store rayé, liens, badges |
+| `--ciel` | `#9ADCFF` | fond de page |
+| `--soleil` | `#FFF89A` | bandeaux, pastilles de choix |
+| `--saumon` | `#FFB2A6` | bulles, accents |
+| `--fraise` | `#FF8AAE` | boules de notation, store rayé |
+| `--fraise-fonce` | `#B02350` | titres, ronds numérotés, bloc coup de cœur |
+| `--mer` | `#0B5285` | liens, badges |
 | `--mer-fonce` | `#063E6B` | texte, contours, ombres |
-| `--fraise` | `#FF5C8A` | boules de notation |
-| `--fraise-fonce` | `#C2255C` | titres et aplats à texte blanc |
-| `--ciel` | `#CDEBFA` | fond de page |
+| `--ardoise` | `#345368` | texte secondaire |
 
-`--fraise-fonce` est la variante texte du rose : `#FF5C8A` est à 2,9:1 sur blanc,
-sous le AA demandé, quand `#C2255C` est à 5,6:1. Le rose d'origine reste sur les
-boules, qui sont décoratives.
+Les quatre premiers tokens sont la palette voulue. Aucun ne porte du texte blanc,
+entre 1,1:1 et 2,2:1 : ce sont des aplats, jamais des fonds de texte clair. Les
+quatre suivants sont imposés par la lisibilité, et chacun est vérifié : l'encre
+tient entre 4,98:1 et 10:1 sur les pastels, les liens 5,5:1 sur le fond bleu, le
+texte secondaire 5,4:1. `--fraise-fonce` est la variante texte du rose, à 6,6:1
+sur blanc et portant du blanc au même ratio.
+
+La palette n'ayant pas de bleu moyen, le store rayé passe au rose et au blanc.
 
 La maquette de référence d'origine est conservée dans `fiche-myboule-pop-riviera.html`.

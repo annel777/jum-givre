@@ -1,9 +1,9 @@
-export const COULEUR_TESTE = '#FF5C8A';
-export const COULEUR_A_TESTER = '#CDEBFA';
+export const COULEUR_TESTE = '#FF8AAE';
+export const COULEUR_A_TESTER = '#9ADCFF';
 
 const CONTOUR = '#063E6B';
-const GAUFRE = '#FFD23F';
-const GAUFRE_TRAIT = '#E0A800';
+const GAUFRE = '#FFF89A';
+const GAUFRE_TRAIT = '#D9A441';
 
 /**
  * Le cornet de glace : marqueur de carte, favicon, puce de lieu.
