@@ -40,15 +40,14 @@ export default function CarteLeaflet({
       className="leaflet-container"
     >
       {/*
-        Fond CARTO Positron : quasi monochrome, pour que les cornets ressortent.
-        Les données restent celles d'OpenStreetMap ; les deux attributions sont
-        obligatoires, celle d'OSM pour les données et celle de CARTO pour le fond.
+        Tuiles OpenStreetMap : gratuites, sans clé ni compte, et la politique
+        d'usage de la fondation vise les sites à faible trafic comme celui-ci.
+        L'attribution est obligatoire. Le style chargé d'OSM est repoussé au
+        second plan par un filtre CSS, voir .leaflet-tile-pane dans globals.css.
       */}
       <TileLayer
-        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-        subdomains="abcd"
-        maxZoom={20}
-        detectRetina
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        maxZoom={19}
         attribution={attribution}
       />
       <ZoomControl position="topright" />

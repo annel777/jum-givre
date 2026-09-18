@@ -459,6 +459,16 @@ section.fiche-section + section.fiche-section {
   background: var(--ciel);
 }
 
+/*
+  Le style OpenStreetMap standard est très coloré : routes rouges et jaunes,
+  libellés partout. Sous des cornets roses, tout se bagarre. Le filtre ne
+  porte que sur le calque des tuiles, donc marqueurs, bulles et boutons
+  gardent leurs couleurs franches.
+*/
+.carte-zone .leaflet-tile-pane {
+  filter: saturate(0.4) brightness(1.12) contrast(0.86);
+}
+
 .cone-marqueur {
   transition: transform 0.15s ease-out;
   transform-origin: bottom center;

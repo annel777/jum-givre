@@ -111,9 +111,8 @@ pour que `<html lang>` soit juste sans middleware — que l'export statique n'a 
 - Aucun cookie déposé, donc pas de bandeau
 - Polices auto-hébergées par `next/font` : aucune requête vers les serveurs de Google
 - Mesure d'audience : Vercel Web Analytics, sans cookie
-- Seuls appels réseau externes : les tuiles CARTO et le script d'analytics Vercel
-- Attributions OpenStreetMap (données) et CARTO (fond de carte) affichées sur la carte,
-  toutes deux obligatoires
+- Seuls appels réseau externes : les tuiles OpenStreetMap et le script d'analytics Vercel
+- Attribution OpenStreetMap affichée sur la carte (obligatoire)
 
 Vérification après chaque changement : ouvrir l'onglet Réseau et confirmer qu'aucun
 autre domaine n'est appelé.

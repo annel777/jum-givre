@@ -190,8 +190,8 @@ function MentionsLegales({ locale }: { locale: Locale }) {
       <h2>{fr ? 'Propriété intellectuelle' : 'Intellectual property'}</h2>
       <p>
         {fr
-          ? 'Les textes, photos et le logo appartiennent à l’éditeur. Les données cartographiques proviennent d’OpenStreetMap, sous licence ODbL, et le fond de carte est rendu par CARTO ; les deux attributions sont affichées sur la carte.'
-          : 'Text, photos and the logo belong to the publisher. Map data comes from OpenStreetMap under the ODbL licence, and the basemap is rendered by CARTO; both attributions are shown on the map.'}
+          ? 'Les textes, photos et le logo appartiennent à l’éditeur. Le fond de carte provient d’OpenStreetMap, sous licence ODbL, et son attribution est affichée sur la carte.'
+          : 'Text, photos and the logo belong to the publisher. Map data comes from OpenStreetMap under the ODbL licence, and the attribution is shown on the map.'}
       </p>
       <h2>{fr ? 'Indépendance' : 'Independence'}</h2>
       <p>
@@ -247,8 +247,8 @@ function Confidentialite({ locale }: { locale: Locale }) {
       <h2>{fr ? 'Polices et carte' : 'Fonts and map'}</h2>
       <p>
         {fr
-          ? 'Les polices sont servies depuis notre domaine, aucune requête n’est faite aux serveurs de Google. Le fond de carte est chargé depuis les serveurs de CARTO, qui reçoivent alors votre adresse IP ; les données cartographiques, elles, viennent d’OpenStreetMap.'
-          : 'Fonts are served from our own domain, with no request to Google servers. Map tiles are loaded from CARTO servers, which therefore receive your IP address; the map data itself comes from OpenStreetMap.'}
+          ? 'Les polices sont servies depuis notre domaine, aucune requête n’est faite aux serveurs de Google. Le fond de carte est chargé depuis les serveurs d’OpenStreetMap, qui reçoivent alors votre adresse IP.'
+          : 'Fonts are served from our own domain, with no request to Google servers. Map tiles are loaded from OpenStreetMap servers, which therefore receive your IP address.'}
       </p>
       <h2>{fr ? 'Vos droits' : 'Your rights'}</h2>
       <p>
