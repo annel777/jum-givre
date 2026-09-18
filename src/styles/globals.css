@@ -438,27 +438,153 @@ section.fiche-section + section.fiche-section {
   font-size: 0.9rem;
 }
 
-/* Carte Leaflet */
+/* Carte Leaflet, habillée aux couleurs du site */
 .carte-zone {
-  height: 380px;
+  position: relative;
+  height: 420px;
   border: 4px solid var(--mer-fonce);
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 8px 8px 0 var(--mer-fonce);
-  background: var(--blanc);
+  box-shadow: 10px 10px 0 var(--mer-fonce);
+  background: var(--ciel);
 }
 .carte-zone .leaflet-container {
   height: 100%;
   width: 100%;
   font: inherit;
+  background: var(--ciel);
 }
+/* Le fond de carte recule d'un cran pour que les cornets ressortent. */
+.carte-zone .leaflet-tile {
+  filter: saturate(0.72) brightness(1.06);
+}
+.carte-chargement {
+  height: 100%;
+  background: var(--ciel);
+}
+
 .cone-marqueur {
   transition: transform 0.15s ease-out;
   transform-origin: bottom center;
 }
 .cone-marqueur:hover,
 .cone-marqueur:focus {
-  transform: scale(1.25);
+  transform: scale(1.22);
+  z-index: 500 !important;
+}
+
+/* Boutons de zoom : les mêmes pastilles que le reste du site */
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: none !important;
+}
+.leaflet-control-zoom a {
+  width: 38px;
+  height: 38px;
+  line-height: 33px;
+  margin-bottom: 8px;
+  background: var(--blanc);
+  color: var(--mer-fonce);
+  border: var(--trait) solid var(--mer-fonce) !important;
+  border-radius: 999px !important;
+  box-shadow: 3px 3px 0 var(--mer-fonce);
+  font-family: var(--police-texte), sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+.leaflet-control-zoom a:hover {
+  background: var(--soleil);
+  color: var(--mer-fonce);
+}
+.leaflet-control-zoom a.leaflet-disabled {
+  opacity: 0.45;
+}
+
+/* Attribution OpenStreetMap : obligatoire, donc lisible mais discrète */
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-top: 2px solid var(--mer-fonce);
+  padding: 3px 8px !important;
+  font-family: var(--police-texte), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--mer-fonce);
+}
+.leaflet-control-attribution a {
+  color: var(--mer);
+}
+
+/* Bulles */
+.leaflet-popup-content-wrapper {
+  background: var(--blanc);
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: 16px;
+  box-shadow: 5px 5px 0 var(--mer-fonce);
+}
+.leaflet-popup-content {
+  margin: 10px 14px;
+}
+.leaflet-container a.popup-lien {
+  font-family: var(--police-titre), cursive;
+  font-size: 1.15rem;
+  color: var(--fraise-fonce);
+  text-decoration: none;
+}
+.leaflet-container a.popup-lien:hover {
+  text-decoration: underline;
+}
+.leaflet-popup-tip {
+  background: var(--blanc);
+  border-right: var(--trait) solid var(--mer-fonce);
+  border-bottom: var(--trait) solid var(--mer-fonce);
+  box-shadow: none;
+}
+.leaflet-container a.leaflet-popup-close-button {
+  width: 26px;
+  height: 26px;
+  padding: 3px 0 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--mer-fonce);
+}
+
+/* Légende */
+.carte-legende {
+  position: absolute;
+  left: 12px;
+  bottom: 34px;
+  z-index: 400;
+  list-style: none;
+  display: grid;
+  gap: 4px;
+  padding: 8px 12px;
+  background: var(--blanc);
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 var(--mer-fonce);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+.carte-legende li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Tant qu'aucune adresse n'est relevée, pas de carte grise et muette */
+.carte-vide {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  padding: 28px;
+  text-align: center;
+  background: var(--ciel);
+}
+.carte-vide p {
+  font-weight: 600;
+  max-width: 34ch;
 }
 
 /* Classement */
@@ -601,7 +727,11 @@ section.fiche-section + section.fiche-section {
     height: 22px;
   }
   .carte-zone {
-    height: 320px;
+    height: 340px;
+  }
+  .carte-legende {
+    font-size: 0.72rem;
+    padding: 6px 10px;
   }
 }
 

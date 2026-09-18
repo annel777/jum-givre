@@ -51,7 +51,9 @@ type Dict = {
     testes: string;
     bientot: string;
     sansCoords: (n: number) => string;
+    vide: string;
     attribution: string;
+    legende: string;
   };
   fiche: {
     notreNote: string;
@@ -127,7 +129,9 @@ const fr: Dict = {
     bientot: 'Bientôt testé',
     sansCoords: (n) =>
       `${n} ${n > 1 ? 'glaciers ne sont pas encore placés' : 'glacier n’est pas encore placé'} sur la carte : coordonnées à relever.`,
+    vide: 'Aucun glacier n’est encore placé sur la carte. Les cornets apparaîtront dès que les adresses seront relevées.',
     attribution: 'Fond de carte © contributeurs OpenStreetMap',
+    legende: 'Légende de la carte',
   },
   fiche: {
     notreNote: 'Notre note',
@@ -212,7 +216,9 @@ const en: Dict = {
     bientot: 'Coming soon',
     sansCoords: (n) =>
       `${n} ${n > 1 ? 'shops are' : 'shop is'} not on the map yet: coordinates still to be recorded.`,
+    vide: 'No shop is on the map yet. The cones will appear as soon as the addresses are recorded.',
     attribution: 'Map data © OpenStreetMap contributors',
+    legende: 'Map legend',
   },
   fiche: {
     notreNote: 'Our rating',
