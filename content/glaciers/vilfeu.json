@@ -10,6 +10,7 @@
   "taste": null,
   "size": null,
   "price": null,
+  "priceUnit": null,
   "welcome": null,
   "bonus": [],
   "flavours": {

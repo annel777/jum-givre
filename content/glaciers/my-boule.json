@@ -10,6 +10,7 @@
   "taste": 4,
   "size": "geante",
   "price": null,
+  "priceUnit": "pot",
   "welcome": "super",
   "bonus": [
     "bien-place",
@@ -51,12 +52,12 @@
   },
   "twins": [
     {
-      "nick": "Scoop'in n°1",
+      "nick": "Prénom 1",
       "fr": "Son avis ici, avec ses mots à lui ou à elle.",
       "en": "Their own words go here."
     },
     {
-      "nick": "Scoop'in n°2",
+      "nick": "Prénom 2",
       "fr": "Son avis ici, avec ses mots à lui ou à elle.",
       "en": "Their own words go here."
     }

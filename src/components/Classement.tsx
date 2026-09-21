@@ -130,7 +130,8 @@ export function Classement({
                 <span className="vignette-fin">
                   {g.taste !== null && <Boules note={g.taste} locale={locale} />}
                   <span className="petit">
-                    {g.price !== null && `${prixLisible(g.price, locale)} · `}
+                    {g.price !== null &&
+                      `${prixLisible(g.price, locale)}${g.priceUnit ? ` / ${e.uniteCourte[g.priceUnit]}` : ''} · `}
                     {g.bonus.length} {d.fiche.bonusTitre.toLowerCase()}
                   </span>
                 </span>

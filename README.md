@@ -1,9 +1,11 @@
 # Les Jumeaux Givrés / The Frozen Twins
 
-Le guide des glaciers de Cannes, goûté et noté par deux jumeaux de 10 ans, les Scoop'ins.
+Le guide des glaciers de Cannes, goûté et noté par deux jumeaux de 10 ans, les jumeaux.
 Projet familial, non commercial, sans publicité ni lien d'affiliation.
 
-Site statique : pas de base de données, pas de compte, pas de cookie.
+Pas de base de données : les fiches vivent dans git. Les pages publiques sont
+générées statiquement et ne posent aucun cookie ; seul l'espace de saisie,
+réservé à l'éditeur, tourne côté serveur.
 
 ## Démarrer
 
@@ -13,6 +15,30 @@ npm run dev        # http://localhost:3000
 npm run build      # export statique dans out/
 npm run lint
 npm run typecheck
+```
+
+## L'espace de saisie
+
+`/admin` est un formulaire protégé par mot de passe qui écrit directement les
+fiches dans ce dépôt. Chaque enregistrement produit un commit, donc un
+déploiement, donc une version consultable et annulable.
+
+Il lui faut deux variables d'environnement, à créer dans les réglages Vercel du
+projet, onglet Environment Variables :
+
+| Variable | Rôle |
+| --- | --- |
+| `ADMIN_PASSWORD` | le mot de passe du formulaire. **Sans préfixe `NEXT_PUBLIC_`** : ainsi il ne quitte jamais le serveur |
+| `GITHUB_TOKEN` | un jeton GitHub à portée restreinte, avec le droit `Contents: write` sur ce seul dépôt |
+
+Le mot de passe n'est jamais envoyé au navigateur : il est vérifié côté serveur,
+par comparaison à durée constante, et le navigateur ne reçoit qu'un cookie de
+session signé, `httpOnly`, valable douze heures.
+
+En local :
+
+```bash
+ADMIN_PASSWORD=… GITHUB_TOKEN=… npm run build && npm start
 ```
 
 ## Ajouter un glacier
@@ -32,13 +58,14 @@ FR et EN se mettent à jour au build.
   "taste": 4.5,
   "size": "geante",
   "price": 3.5,
+  "priceUnit": "boule",
   "welcome": "super",
   "bonus": ["terrasse", "choix"],
   "flavours": { "fr": ["Pistache"], "en": ["Pistachio"] },
   "liked": { "fr": [], "en": [] },
   "disliked": { "fr": [], "en": [] },
   "topping": { "fr": "", "en": "" },
-  "twins": [{ "nick": "Scoop'in n°1", "fr": "…", "en": "…" }],
+  "twins": [{ "nick": "Prénom 1", "fr": "…", "en": "…" }],
   "address": "81 rue Félix Faure, 06400 Cannes",
   "coords": [43.5512, 7.0159],
   "hours": { "fr": "12h à 23h", "en": "Midday to 11pm" },
@@ -52,7 +79,8 @@ FR et EN se mettent à jour au build.
 | `status` | `teste` (fiche complète) ou `a-tester` (seulement sur la carte) |
 | `taste` | 1 à 5, demi-points autorisés (`4.5`), `null` si pas encore testé |
 | `size` | `mini`, `normale`, `geante` |
-| `price` | le prix d'une boule en euros (`3.5`), ou `null` s'il n'est pas relevé |
+| `price` | le prix en euros (`3.5`), ou `null` s'il n'est pas relevé |
+| `priceUnit` | ce que ce prix achète : `boule`, `pot` ou `cornet`, ou `null` |
 | `welcome` | `bof`, `sympa`, `super` |
 | `bonus` | parmi `bien-place`, `terrasse`, `deco`, `choix`, `originaux`, `gouter`, `light` |
 | `coords` | `[latitude, longitude]`, ou `null` tant que le point n'est pas relevé |
@@ -60,6 +88,8 @@ FR et EN se mettent à jour au build.
 
 Le classement additionne `taste` (sur 5) et le nombre de points bonus (sur 7).
 Ce total ordonne les glaciers, il n'est jamais affiché comme une note.
+
+Ou par le formulaire de `/admin`, qui écrit le même fichier.
 
 ### Relever les coordonnées
 
@@ -80,6 +110,47 @@ Pour un cas douteux, à la main : ouvrir [openstreetmap.org](https://www.openstr
 clic droit sur la devanture, « Afficher l'adresse », recopier latitude puis longitude
 dans `coords`.
 
+## Ajouter un article
+
+Un article = un dossier dans `content/articles/`, avec `fr.mdx` et `en.mdx`. Le nom
+du dossier est le slug : il sert d'adresse dans les deux langues
+(`/articles/<slug>/` et `/en/articles/<slug>/`).
+
+```
+content/articles/vocabulaire-de-la-glace/
+  fr.mdx
+  en.mdx
+```
+
+L'en-tête de chaque fichier :
+
+```yaml
+---
+title: "Boule, cornet, sundae, topping : c'est quoi la différence ?"
+summary: "Une phrase, reprise sur l'index et dans la balise description."
+published: 2026-09-18
+updated: 2026-09-18
+glaciers:
+  - my-boule
+  - gelato-junkie
+---
+```
+
+`glaciers` est le maillage interne, et la règle du plan éditorial en dépend :
+
+- **au moins deux fiches par article**, listées ici ;
+- **au moins un article par fiche** : c'est automatique, chaque fiche affiche
+  « À lire aussi » avec les articles qui la citent.
+
+Dans le corps, deux composants sont disponibles :
+
+- `<LienFiche slug="my-boule" />` — un lien vers la fiche, qui va chercher le nom
+  du glacier tout seul, dans la bonne langue ;
+- `<ConseilGlacier>…</ConseilGlacier>` — l'encadré jaune récurrent.
+
+Les deux langues se publient le même jour, comme le veut le calendrier éditorial.
+Rien d'autre à toucher : l'index, le sitemap et les liens croisés suivent au build.
+
 ## Ce qui reste à faire avant la mise en ligne
 
 - [ ] Récupérer le téléphone de Vercel, obligatoire pour l'hébergeur
@@ -94,11 +165,13 @@ dans `coords`.
 
 ```
 content/glaciers/     un fichier JSON par glacier, la seule source de contenu
+content/articles/     un dossier par article, avec fr.mdx et en.mdx
 src/app/(fr)/         les pages françaises, servies à la racine
 src/app/(en)/en/      les pages anglaises, servies sous /en/
 src/vues/             une vue par type de page, partagée entre FR et EN
 src/components/       fiche, carte, classement, en-tête, pied de page
 src/lib/i18n.ts       toutes les chaînes FR et EN, et le plan des URL
+src/lib/articles.ts   lit les .mdx et construit le maillage fiches ↔ articles
 src/styles/           l'univers graphique Pop Riviera
 scripts/geocoder.mjs  remplit les coords des fiches depuis leurs adresses
 ```
@@ -108,7 +181,8 @@ pour que `<html lang>` soit juste sans middleware — que l'export statique n'a 
 
 ## Vie privée et conformité
 
-- Aucun cookie déposé, donc pas de bandeau
+- Aucun cookie sur les pages publiques, donc pas de bandeau. L'espace de saisie
+  pose un cookie de session, pour son seul utilisateur
 - Polices auto-hébergées par `next/font` : aucune requête vers les serveurs de Google
 - Mesure d'audience : Vercel Web Analytics, sans cookie
 - Seuls appels réseau externes : les tuiles OpenStreetMap et le script d'analytics Vercel
@@ -119,7 +193,8 @@ autre domaine n'est appelé.
 
 ## Déploiement
 
-Hébergement sur Vercel, en export statique (`output: 'export'`, dossier `out/`).
+Hébergement sur Vercel. Les pages publiques sont générées statiquement au build ;
+seules les routes `/api/admin/` tournent à la demande.
 
 Les trois domaines se règlent dans les réglages du projet Vercel, pas dans le code :
 

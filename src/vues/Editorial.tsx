@@ -29,8 +29,13 @@ function Methode({ locale }: { locale: Locale }) {
         </ul>
         <h2>Le prix</h2>
         <p>
-          Le prix n&apos;est pas noté et n&apos;est pas jugé. On relève simplement ce que coûte
-          une boule, en euros, le jour de la visite. À toi de décider si c&apos;est cher.
+          Le prix n&apos;est pas noté et n&apos;est pas jugé. On relève simplement ce que ça
+          coûte, en euros, le jour de la visite. À toi de décider si c&apos;est cher.
+        </p>
+        <p>
+          Tous les glaciers ne vendent pas la même chose : certains à la boule, d&apos;autres au
+          pot ou au cornet. Chaque fiche dit donc à quoi correspond son prix, pour qu&apos;on ne
+          compare pas un pot avec une boule.
         </p>
         <h2>Les 7 points bonus</h2>
         <p>Un point chacun, cochés ou non : </p>
@@ -75,8 +80,13 @@ function Methode({ locale }: { locale: Locale }) {
       </ul>
       <h2>The price</h2>
       <p>
-        Price is neither scored nor judged. We simply record what one scoop costs, in euros, on
-        the day we visited. Whether that is expensive is for you to decide.
+        Price is neither scored nor judged. We simply record what it costs, in euros, on the day
+        we visited. Whether that is expensive is for you to decide.
+      </p>
+      <p>
+        Shops don&apos;t all sell the same thing: some by the scoop, others by the cup or the
+        cone. Each review says what its price covers, so that a cup is never compared with a
+        scoop.
       </p>
       <h2>The 7 bonus points</h2>
       <p>One point each, ticked or not:</p>
@@ -108,11 +118,11 @@ function QuiSommesNous({ locale }: { locale: Locale }) {
   if (locale === 'fr') {
     return (
       <>
-        <h2>Les Scoop&apos;ins</h2>
+        <h2>Les jumeaux</h2>
         <p>
-          Deux jumeaux de 10 ans qui goûtent les glaciers de Cannes. Ils signent par leur surnom
-          seulement : pas de nom de famille, pas d&apos;école, pas de quartier, pas de photo de
-          visage. Les photos du site montrent des mains, des glaces et des devantures.
+          Deux jumeaux de 10 ans qui goûtent les glaciers de Cannes. Ils signent par leur prénom
+          ou leur surnom : pas de nom de famille, pas d&apos;école, pas de quartier, pas de photo
+          de visage. Les photos du site montrent des mains, des glaces et des devantures.
         </p>
         <p>
           Chaque contenu qui les concerne est publié avec leur accord à tous les deux.
@@ -133,10 +143,11 @@ function QuiSommesNous({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <h2>The Scoop&apos;ins</h2>
+      <h2>The twins</h2>
       <p>
         Two ten-year-old twins tasting their way through the ice cream shops of Cannes. They sign
-        with a nickname only: no surname, no school, no neighbourhood, no photo of their faces.
+        with a first name or a nickname: no surname, no school, no neighbourhood, no photo of
+        their faces.
         The pictures on this site show hands, ice creams and shopfronts.
       </p>
       <p>Everything published about them is published with both of them agreeing to it.</p>
@@ -223,8 +234,8 @@ function Confidentialite({ locale }: { locale: Locale }) {
       <h2>{fr ? 'Aucun cookie' : 'No cookies'}</h2>
       <p>
         {fr
-          ? 'Le site ne dépose aucun cookie, il n’y a donc pas de bandeau à accepter. Tout ajout d’un outil tiers imposerait de revoir ce point.'
-          : 'This site sets no cookies, so there is no banner to accept. Adding any third-party tool would mean revisiting this.'}
+          ? 'Aucun cookie n’est déposé sur votre navigateur, il n’y a donc pas de bandeau à accepter. Le site a bien un espace de saisie réservé à son éditeur, protégé par mot de passe, qui pose un cookie de session — mais uniquement pour la personne qui s’y connecte, jamais pour les visiteurs. Tout ajout d’un outil tiers imposerait de revoir ce point.'
+          : 'No cookie is set on your browser, so there is no banner to accept. The site does have a password-protected editing space for its publisher, which sets a session cookie — but only for whoever signs in there, never for visitors. Adding any third-party tool would mean revisiting this.'}
       </p>
       <h2>{fr ? 'Mesure d’audience' : 'Analytics'}</h2>
       <p>

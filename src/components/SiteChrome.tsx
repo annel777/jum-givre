@@ -33,7 +33,7 @@ export function SelecteurLangue({
   );
 }
 
-const PAGES_NAV: RouteKey[] = ['home', 'ranking', 'method', 'about'];
+const PAGES_NAV: RouteKey[] = ['home', 'ranking', 'articles', 'method', 'about'];
 
 export function Entete({ locale, page, slug }: { locale: Locale; page: RouteKey; slug?: string }) {
   const d = t(locale);

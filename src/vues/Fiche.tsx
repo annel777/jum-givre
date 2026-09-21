@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 
+import { ALireAussi } from '@/components/ALireAussi';
 import { DonneesStructurees } from '@/components/DonneesStructurees';
 import { FicheGlacier } from '@/components/FicheGlacier';
 import { Entete, Pied } from '@/components/SiteChrome';
@@ -19,6 +20,7 @@ export function Fiche({ locale, slug }: { locale: Locale; slug: string }) {
       <main>
         <DonneesStructurees glacier={glacier} locale={locale} />
         <FicheGlacier glacier={glacier} locale={locale} rang={rang >= 0 ? rang + 1 : undefined} />
+        <ALireAussi slug={slug} locale={locale} />
       </main>
       <Pied locale={locale} />
     </>
