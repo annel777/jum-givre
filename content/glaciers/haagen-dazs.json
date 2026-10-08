@@ -1,6 +1,11 @@
 {
   "slug": "haagen-dazs",
   "name": "Häagen-Dazs",
+  "since": null,
+  "note": {
+    "fr": "",
+    "en": ""
+  },
   "status": "a-tester",
   "visitDate": null,
   "area": {

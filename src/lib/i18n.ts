@@ -54,6 +54,8 @@ type Dict = {
     attribution: string;
   };
   fiche: {
+    depuis: (annee: number) => string;
+    aSavoir: string;
     notreNote: string;
     coupDoeil: string;
     gout: string;
@@ -145,6 +147,8 @@ const fr: Dict = {
       'Fond de carte &copy; <a href="https://www.openstreetmap.org/copyright">contributeurs OpenStreetMap</a>',
   },
   fiche: {
+    depuis: (annee) => `Glacier depuis ${annee}`,
+    aSavoir: 'Bon à savoir',
     notreNote: 'Notre note',
     coupDoeil: 'En un coup d’œil',
     gout: 'Goût',
@@ -249,6 +253,8 @@ const en: Dict = {
       'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
   },
   fiche: {
+    depuis: (annee) => `Making ice cream since ${annee}`,
+    aSavoir: 'Good to know',
     notreNote: 'Our rating',
     coupDoeil: 'At a glance',
     gout: 'Taste',

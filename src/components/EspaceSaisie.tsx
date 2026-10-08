@@ -10,6 +10,8 @@ const d = t('fr');
 const VIDE: Glacier = {
   slug: '',
   name: '',
+  since: null,
+  note: { fr: '', en: '' },
   status: 'a-tester',
   visitDate: null,
   area: { fr: '', en: '' },
@@ -147,6 +149,18 @@ export function EspaceSaisie() {
       <label htmlFor="name">Nom</label>
       <input id="name" value={fiche.name} onChange={(e) => maj('name', e.target.value)} required />
 
+      <label htmlFor="since">Glacier depuis, en année</label>
+      <input
+        id="since"
+        type="number"
+        min={1800}
+        max={new Date().getFullYear()}
+        step={1}
+        placeholder="1978"
+        value={fiche.since ?? ''}
+        onChange={(e) => maj('since', e.target.value === '' ? null : Number(e.target.value))}
+      />
+
       <label htmlFor="status">Statut</label>
       <select
         id="status"
@@ -176,6 +190,20 @@ export function EspaceSaisie() {
         id="area-en"
         value={fiche.area.en}
         onChange={(e) => maj('area', { ...fiche.area, en: e.target.value })}
+      />
+
+      <label htmlFor="note-fr">Bon à savoir, en français</label>
+      <input
+        id="note-fr"
+        placeholder="Ils font aussi des crêpes à la minute."
+        value={fiche.note.fr}
+        onChange={(e) => maj('note', { ...fiche.note, fr: e.target.value })}
+      />
+      <label htmlFor="note-en">Bon à savoir, en anglais</label>
+      <input
+        id="note-en"
+        value={fiche.note.en}
+        onChange={(e) => maj('note', { ...fiche.note, en: e.target.value })}
       />
 
       <h3>La note</h3>

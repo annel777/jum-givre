@@ -1,6 +1,11 @@
 {
   "slug": "amorino",
   "name": "Amorino",
+  "since": null,
+  "note": {
+    "fr": "",
+    "en": ""
+  },
   "status": "a-tester",
   "visitDate": null,
   "area": {

@@ -9,6 +9,29 @@ function Echelle({ valeurs }: { valeurs: string[] }) {
   return <span className="echelle">{valeurs.join(' · ')}</span>;
 }
 
+/**
+ * Le prix est un fait relevé sur place, pas une appréciation : il se lit en
+ * vitrine, sans avoir goûté. La ligne sert donc aux deux états de la fiche.
+ */
+function LignePrix({ glacier: g, locale }: { glacier: Glacier; locale: Locale }) {
+  const d = t(locale);
+
+  return (
+    <div className="ligne">
+      <span className="ligne-nom">
+        {d.fiche.prix}
+        {/* Tous les glaciers ne vendent pas à la boule : l'unité est dite. */}
+        {g.priceUnit && <span className="echelle">{d.echelles.unite[g.priceUnit]}</span>}
+      </span>
+      {g.price !== null ? (
+        <span className="choix">{prixLisible(g.price, locale)}</span>
+      ) : (
+        <span className="petit">{d.fiche.prixInconnu}</span>
+      )}
+    </div>
+  );
+}
+
 export function FicheGlacier({
   glacier: g,
   locale,
@@ -33,6 +56,7 @@ export function FicheGlacier({
         <div>
           <h1>{g.name}</h1>
           <p className="quartier">{g.area[locale]}</p>
+          {g.since !== null && <p className="depuis">{d.fiche.depuis(g.since)}</p>}
         </div>
         {teste && g.taste !== null && (
           <p className="note-gout">
@@ -50,6 +74,7 @@ export function FicheGlacier({
       {!teste && (
         <section className="fiche-section">
           <p>{d.fiche.pasEncoreTeste}</p>
+          {g.price !== null && <LignePrix glacier={g} locale={locale} />}
         </section>
       )}
 
@@ -78,19 +103,7 @@ export function FicheGlacier({
               <span className="choix">🍦 {e.size[g.size]}</span>
             </div>
           )}
-          {/* Le prix est un fait relevé sur place, pas une appréciation. */}
-          <div className="ligne">
-            <span className="ligne-nom">
-              {d.fiche.prix}
-              {/* Tous les glaciers ne vendent pas à la boule : l'unité est dite. */}
-              {g.priceUnit && <span className="echelle">{e.unite[g.priceUnit]}</span>}
-            </span>
-            {g.price !== null ? (
-              <span className="choix">{prixLisible(g.price, locale)}</span>
-            ) : (
-              <span className="petit">{d.fiche.prixInconnu}</span>
-            )}
-          </div>
+          <LignePrix glacier={g} locale={locale} />
           {g.welcome && (
             <div className="ligne">
               <span className="ligne-nom">
@@ -216,6 +229,17 @@ export function FicheGlacier({
               )}
             </span>
           </li>
+          {g.note[locale] && (
+            <li>
+              <span className="ico" aria-hidden="true">
+                💡
+              </span>
+              <span>
+                <span className="sr-only">{d.fiche.aSavoir} : </span>
+                {g.note[locale]}
+              </span>
+            </li>
+          )}
           {g.hours[locale] && (
             <li>
               <span className="ico" aria-hidden="true">

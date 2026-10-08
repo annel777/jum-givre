@@ -1,6 +1,11 @@
 {
   "slug": "vilfeu",
   "name": "Vilfeu",
+  "since": 1978,
+  "note": {
+    "fr": "Ils font aussi des crêpes à la minute.",
+    "en": "They also make crêpes to order."
+  },
   "status": "a-tester",
   "visitDate": null,
   "area": {
@@ -9,8 +14,8 @@
   },
   "taste": null,
   "size": null,
-  "price": null,
-  "priceUnit": null,
+  "price": 4.5,
+  "priceUnit": "boule",
   "welcome": null,
   "bonus": [],
   "flavours": {

@@ -1,6 +1,11 @@
 {
   "slug": "sweet-italia",
   "name": "Sweet Italia",
+  "since": null,
+  "note": {
+    "fr": "",
+    "en": ""
+  },
   "status": "a-tester",
   "visitDate": null,
   "area": {

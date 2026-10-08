@@ -1,6 +1,11 @@
 {
   "slug": "my-boule",
   "name": "My Boule",
+  "since": null,
+  "note": {
+    "fr": "",
+    "en": ""
+  },
   "status": "teste",
   "visitDate": null,
   "area": {

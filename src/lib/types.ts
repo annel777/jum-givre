@@ -27,6 +27,10 @@ export type AvisJumeau = { nick: string; fr: string; en: string };
 export type Glacier = {
   slug: string;
   name: string;
+  /** L'année d'ouverture, quand le glacier l'affiche. Un fait, pas un argument. */
+  since: number | null;
+  /** Ce qui ne rentre dans aucune case : une spécialité, un détail utile sur place. */
+  note: Bilingue;
   /** « teste » : la fiche est complète. « a-tester » : le glacier n'apparaît que sur la carte. */
   status: 'teste' | 'a-tester';
   /** Mois de la visite, au format AAAA-MM. */

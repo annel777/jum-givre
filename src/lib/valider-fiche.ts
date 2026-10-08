@@ -79,6 +79,19 @@ export function validerFiche(brut: unknown): { fiche: Glacier } | { erreurs: str
     }
   }
 
+  // Une année d'ouverture : un entier plausible, jamais dans le futur.
+  const annee = d.since;
+  let since: number | null = null;
+  if (annee !== null && annee !== undefined && annee !== '') {
+    const n = Number(annee);
+    const max = new Date().getFullYear();
+    if (!Number.isInteger(n) || n < 1800 || n > max) {
+      erreurs.push(`since : une année entre 1800 et ${max}`);
+    } else {
+      since = n;
+    }
+  }
+
   const bonusBrut = Array.isArray(d.bonus) ? d.bonus.map(String) : [];
   const inconnus = bonusBrut.filter((b) => !BONUS_KEYS.includes(b as never));
   if (inconnus.length) erreurs.push(`bonus inconnus : ${inconnus.join(', ')}`);
@@ -115,6 +128,8 @@ export function validerFiche(brut: unknown): { fiche: Glacier } | { erreurs: str
     fiche: {
       slug,
       name: texte('name'),
+      since,
+      note: bilingue('note'),
       status: (choix('status', STATUTS) ?? 'a-tester') as Glacier['status'],
       visitDate: visite ? String(visite) : null,
       area: bilingue('area'),

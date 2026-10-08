@@ -1,6 +1,11 @@
 {
   "slug": "gelato-junkie",
   "name": "Gelato Junkie",
+  "since": null,
+  "note": {
+    "fr": "",
+    "en": ""
+  },
   "status": "teste",
   "visitDate": "2026-09",
   "area": {

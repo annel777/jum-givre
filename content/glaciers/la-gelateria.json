@@ -1,6 +1,11 @@
 {
   "slug": "la-gelateria",
   "name": "La Gelateria",
+  "since": null,
+  "note": {
+    "fr": "",
+    "en": ""
+  },
   "status": "a-tester",
   "visitDate": null,
   "area": {

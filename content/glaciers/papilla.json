@@ -1,6 +1,11 @@
 {
   "slug": "papilla",
   "name": "Papilla",
+  "since": null,
+  "note": {
+    "fr": "",
+    "en": ""
+  },
   "status": "a-tester",
   "visitDate": null,
   "area": {
