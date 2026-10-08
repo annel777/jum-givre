@@ -3,6 +3,7 @@ import { BONUS_KEYS, type Glacier } from './types';
 const TAILLES = ['mini', 'normale', 'geante'];
 const ACCUEILS = ['bof', 'sympa', 'super'];
 const UNITES = ['boule', 'pot', 'cornet'];
+const NIVEAUX = ['pas-cher', 'norme', 'cher'];
 const STATUTS = ['teste', 'a-tester'];
 
 /**
@@ -135,6 +136,7 @@ export function validerFiche(brut: unknown): { fiche: Glacier } | { erreurs: str
       area: bilingue('area'),
       taste,
       size: choix('size', TAILLES) as Glacier['size'],
+      priceLevel: choix('priceLevel', NIVEAUX) as Glacier['priceLevel'],
       price,
       priceUnit: choix('priceUnit', UNITES) as Glacier['priceUnit'],
       welcome: choix('welcome', ACCUEILS) as Glacier['welcome'],

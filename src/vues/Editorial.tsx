@@ -25,12 +25,19 @@ function Methode({ locale }: { locale: Locale }) {
         <h2>Les choix simples</h2>
         <ul>
           <li>Taille : Mini, Normale ou Géante</li>
+          <li>Prix : Pas cher, Dans la norme ou Cher</li>
           <li>Accueil : Bof, Sympa ou Super</li>
         </ul>
         <h2>Le prix</h2>
         <p>
-          Le prix n&apos;est pas noté et n&apos;est pas jugé. On relève simplement ce que ça
-          coûte, en euros, le jour de la visite. À toi de décider si c&apos;est cher.
+          Le prix n&apos;entre pas dans la note. Il ne rapporte aucun point et n&apos;en enlève
+          aucun : un glacier cher peut gagner le classement, un glacier pas cher peut le perdre.
+        </p>
+        <p>
+          Il est dit deux fois. D&apos;abord l&apos;étiquette, Pas cher, Dans la norme ou Cher,
+          qui situe le glacier par rapport aux autres glaciers de Cannes, et pas par rapport à
+          un budget : c&apos;est notre avis, et il se discute. Ensuite le prix en euros, relevé
+          en vitrine le jour de la visite, pour que tu puisses vérifier l&apos;étiquette.
         </p>
         <p>
           Tous les glaciers ne vendent pas la même chose : certains à la boule, d&apos;autres au
@@ -76,12 +83,19 @@ function Methode({ locale }: { locale: Locale }) {
       <h2>The simple choices</h2>
       <ul>
         <li>Size: Small, Regular or Giant</li>
+        <li>Price: Cheap, Average or Expensive</li>
         <li>Welcome: Meh, Nice or Great</li>
       </ul>
       <h2>The price</h2>
       <p>
-        Price is neither scored nor judged. We simply record what it costs, in euros, on the day
-        we visited. Whether that is expensive is for you to decide.
+        Price never enters the score. It earns no points and costs none: an expensive shop can
+        still win the ranking, a cheap one can still lose it.
+      </p>
+      <p>
+        We say it twice. First the label — Cheap, Average or Expensive — which places the shop
+        against the other ice cream shops in Cannes, not against a budget: that is our opinion,
+        and it is arguable. Then the price in euros, read off the window on the day we visited,
+        so you can check the label yourself.
       </p>
       <p>
         Shops don&apos;t all sell the same thing: some by the scoop, others by the cup or the

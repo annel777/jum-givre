@@ -10,21 +10,40 @@ function Echelle({ valeurs }: { valeurs: string[] }) {
 }
 
 /**
- * Le prix est un fait relevé sur place, pas une appréciation : il se lit en
- * vitrine, sans avoir goûté. La ligne sert donc aux deux états de la fiche.
+ * Le prix a deux moitiés, et la fiche montre les deux. L'étiquette du brief
+ * — pas cher, dans la norme, cher — est l'appréciation, à trois crans comme
+ * la taille et l'accueil. Les euros sont le fait qui la justifie : ils se
+ * lisent en vitrine, sans avoir goûté, donc la ligne sert aussi aux fiches
+ * pas encore testées.
  */
 function LignePrix({ glacier: g, locale }: { glacier: Glacier; locale: Locale }) {
   const d = t(locale);
+  const e = d.echelles;
+  const euros = g.price !== null ? prixLisible(g.price, locale) : null;
 
   return (
     <div className="ligne">
       <span className="ligne-nom">
         {d.fiche.prix}
-        {/* Tous les glaciers ne vendent pas à la boule : l'unité est dite. */}
-        {g.priceUnit && <span className="echelle">{d.echelles.unite[g.priceUnit]}</span>}
+        <Echelle valeurs={[e.niveau['pas-cher'], e.niveau.norme, e.niveau.cher]} />
       </span>
-      {g.price !== null ? (
-        <span className="choix">{prixLisible(g.price, locale)}</span>
+      {g.priceLevel ? (
+        <span className="choix">
+          {e.niveau[g.priceLevel]}
+          {/* Les euros, et ce qu'ils achètent, en précision de l'étiquette. */}
+          {euros && (
+            <span className="petit">
+              {' '}
+              {euros}
+              {g.priceUnit ? ` / ${e.uniteCourte[g.priceUnit]}` : ''}
+            </span>
+          )}
+        </span>
+      ) : euros ? (
+        <span className="choix">
+          {euros}
+          {g.priceUnit && <span className="petit"> / {e.uniteCourte[g.priceUnit]}</span>}
+        </span>
       ) : (
         <span className="petit">{d.fiche.prixInconnu}</span>
       )}
@@ -74,7 +93,9 @@ export function FicheGlacier({
       {!teste && (
         <section className="fiche-section">
           <p>{d.fiche.pasEncoreTeste}</p>
-          {g.price !== null && <LignePrix glacier={g} locale={locale} />}
+          {(g.price !== null || g.priceLevel !== null) && (
+            <LignePrix glacier={g} locale={locale} />
+          )}
         </section>
       )}
 

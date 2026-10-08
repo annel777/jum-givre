@@ -1,4 +1,4 @@
-import type { BonusKey, Locale, Size, Unite, Welcome } from './types';
+import type { BonusKey, Locale, Niveau, Size, Unite, Welcome } from './types';
 
 export const LOCALES: Locale[] = ['fr', 'en'];
 
@@ -104,6 +104,7 @@ type Dict = {
   echelles: {
     size: Record<Size, string>;
     welcome: Record<Welcome, string>;
+    niveau: Record<Niveau, string>;
     unite: Record<Unite, string>;
     uniteCourte: Record<Unite, string>;
     bonus: Record<BonusKey, string>;
@@ -202,6 +203,7 @@ const fr: Dict = {
   echelles: {
     size: { mini: 'Mini', normale: 'Normale', geante: 'Géante' },
     welcome: { bof: 'Bof', sympa: 'Sympa', super: 'Super' },
+    niveau: { 'pas-cher': 'Pas cher', norme: 'Dans la norme', cher: 'Cher' },
     unite: { boule: 'la boule', pot: 'le pot', cornet: 'le cornet' },
     uniteCourte: { boule: 'boule', pot: 'pot', cornet: 'cornet' },
     bonus: {
@@ -308,6 +310,7 @@ const en: Dict = {
   echelles: {
     size: { mini: 'Small', normale: 'Regular', geante: 'Giant' },
     welcome: { bof: 'Meh', sympa: 'Nice', super: 'Great' },
+    niveau: { 'pas-cher': 'Cheap', norme: 'Average', cher: 'Expensive' },
     unite: { boule: 'one scoop', pot: 'one cup', cornet: 'one cone' },
     uniteCourte: { boule: 'scoop', pot: 'cup', cornet: 'cone' },
     bonus: {

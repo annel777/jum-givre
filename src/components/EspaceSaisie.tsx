@@ -17,6 +17,7 @@ const VIDE: Glacier = {
   area: { fr: '', en: '' },
   taste: null,
   size: null,
+  priceLevel: null,
   price: null,
   priceUnit: null,
   welcome: null,
@@ -228,6 +229,18 @@ export function EspaceSaisie() {
         <option value="mini">{d.echelles.size.mini}</option>
         <option value="normale">{d.echelles.size.normale}</option>
         <option value="geante">{d.echelles.size.geante}</option>
+      </select>
+
+      <label htmlFor="priceLevel">Prix, l’étiquette</label>
+      <select
+        id="priceLevel"
+        value={fiche.priceLevel ?? ''}
+        onChange={(e) => maj('priceLevel', (e.target.value || null) as Glacier['priceLevel'])}
+      >
+        <option value="">—</option>
+        <option value="pas-cher">{d.echelles.niveau['pas-cher']}</option>
+        <option value="norme">{d.echelles.niveau.norme}</option>
+        <option value="cher">{d.echelles.niveau.cher}</option>
       </select>
 
       <label htmlFor="price">Prix, en euros</label>
