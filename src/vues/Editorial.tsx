@@ -200,12 +200,12 @@ function MentionsLegales({ locale }: { locale: Locale }) {
       <h2>{fr ? 'Éditeur du site' : 'Site publisher'}</h2>
       <p>
         {fr
-          ? 'Site personnel, édité à titre non professionnel : aucune publicité, aucun partenariat, aucune vente.'
-          : 'A personal site, published on a non-professional basis: no advertising, no partnerships, nothing for sale.'}
+          ? 'Site personnel : pas de publicité, pas de partenariat, rien à vendre.'
+          : 'A personal site: no advertising, no partnerships, nothing for sale.'}
         <br />
         {fr
-          ? 'À ce titre, l’éditeur ne publie pas son adresse postale (article 1-1-II de la loi du 21 juin 2004). Elle a été communiquée à l’hébergeur, qui la conserve et peut la transmettre à l’autorité judiciaire.'
-          : 'On that basis the publisher does not disclose a postal address (article 1-1-II of the French Act of 21 June 2004). It has been given to the hosting provider, which keeps it and may pass it to the courts.'}
+          ? 'L’éditeur n’est pas un professionnel, il ne publie donc pas d’adresse postale. L’hébergeur la connaît.'
+          : 'The publisher is not a professional, so no postal address is published here. The hosting provider has it.'}
         <br />
         <Courriel />
       </p>
