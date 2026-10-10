@@ -1,6 +1,11 @@
 {
   "slug": "my-boule",
   "name": "My Boule",
+  "since": null,
+  "note": {
+    "fr": "",
+    "en": ""
+  },
   "status": "teste",
   "visitDate": null,
   "area": {
@@ -9,6 +14,7 @@
   },
   "taste": 4,
   "size": "geante",
+  "priceLevel": "cher",
   "price": null,
   "priceUnit": "pot",
   "welcome": "super",

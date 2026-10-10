@@ -27,6 +27,7 @@ export function DonneesStructurees({ glacier: g, locale }: { glacier: Glacier; l
   if (g.coords) {
     donnees.geo = { '@type': 'GeoCoordinates', latitude: g.coords[0], longitude: g.coords[1] };
   }
+  if (g.since !== null) donnees.foundingDate = String(g.since);
   if (g.phone) donnees.telephone = g.phone;
   if (g.website) donnees.sameAs = [g.website];
 

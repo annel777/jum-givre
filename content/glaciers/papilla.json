@@ -1,6 +1,11 @@
 {
   "slug": "papilla",
   "name": "Papilla",
+  "since": null,
+  "note": {
+    "fr": "",
+    "en": ""
+  },
   "status": "a-tester",
   "visitDate": null,
   "area": {
@@ -9,6 +14,7 @@
   },
   "taste": null,
   "size": null,
+  "priceLevel": null,
   "price": null,
   "priceUnit": null,
   "welcome": null,

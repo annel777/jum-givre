@@ -3,6 +3,9 @@ export type Locale = 'fr' | 'en';
 export type Size = 'mini' | 'normale' | 'geante';
 export type Welcome = 'bof' | 'sympa' | 'super';
 
+/** L'étiquette prix du brief : une appréciation à trois crans, comme la taille et l'accueil. */
+export type Niveau = 'pas-cher' | 'norme' | 'cher';
+
 /** Ce qu'on achète : tous les glaciers ne vendent pas à la boule. */
 export type Unite = 'boule' | 'pot' | 'cornet';
 
@@ -27,6 +30,10 @@ export type AvisJumeau = { nick: string; fr: string; en: string };
 export type Glacier = {
   slug: string;
   name: string;
+  /** L'année d'ouverture, quand le glacier l'affiche. Un fait, pas un argument. */
+  since: number | null;
+  /** Ce qui ne rentre dans aucune case : une spécialité, un détail utile sur place. */
+  note: Bilingue;
   /** « teste » : la fiche est complète. « a-tester » : le glacier n'apparaît que sur la carte. */
   status: 'teste' | 'a-tester';
   /** Mois de la visite, au format AAAA-MM. */
@@ -35,7 +42,9 @@ export type Glacier = {
   /** La seule note chiffrée : le goût, de 1 à 5, demi-boules autorisées. */
   taste: number | null;
   size: Size | null;
-  /** Le prix d'une unité, en euros. Un fait relevé sur place, jamais une appréciation. */
+  /** L'étiquette prix : pas cher, dans la norme, cher. L'appréciation. */
+  priceLevel: Niveau | null;
+  /** Le prix d'une unité, en euros. Le fait relevé en vitrine, qui justifie l'étiquette. */
   price: number | null;
   /** L'unité vendue, qui change d'un glacier à l'autre : boule, pot ou cornet. */
   priceUnit: Unite | null;

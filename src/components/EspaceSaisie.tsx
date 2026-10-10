@@ -10,11 +10,14 @@ const d = t('fr');
 const VIDE: Glacier = {
   slug: '',
   name: '',
+  since: null,
+  note: { fr: '', en: '' },
   status: 'a-tester',
   visitDate: null,
   area: { fr: '', en: '' },
   taste: null,
   size: null,
+  priceLevel: null,
   price: null,
   priceUnit: null,
   welcome: null,
@@ -147,6 +150,18 @@ export function EspaceSaisie() {
       <label htmlFor="name">Nom</label>
       <input id="name" value={fiche.name} onChange={(e) => maj('name', e.target.value)} required />
 
+      <label htmlFor="since">Glacier depuis, en année</label>
+      <input
+        id="since"
+        type="number"
+        min={1800}
+        max={new Date().getFullYear()}
+        step={1}
+        placeholder="1978"
+        value={fiche.since ?? ''}
+        onChange={(e) => maj('since', e.target.value === '' ? null : Number(e.target.value))}
+      />
+
       <label htmlFor="status">Statut</label>
       <select
         id="status"
@@ -178,6 +193,20 @@ export function EspaceSaisie() {
         onChange={(e) => maj('area', { ...fiche.area, en: e.target.value })}
       />
 
+      <label htmlFor="note-fr">Bon à savoir, en français</label>
+      <input
+        id="note-fr"
+        placeholder="Ils font aussi des crêpes à la minute."
+        value={fiche.note.fr}
+        onChange={(e) => maj('note', { ...fiche.note, fr: e.target.value })}
+      />
+      <label htmlFor="note-en">Bon à savoir, en anglais</label>
+      <input
+        id="note-en"
+        value={fiche.note.en}
+        onChange={(e) => maj('note', { ...fiche.note, en: e.target.value })}
+      />
+
       <h3>La note</h3>
       <label htmlFor="taste">Goût, de 1 à 5 par demi-points</label>
       <input
@@ -200,6 +229,18 @@ export function EspaceSaisie() {
         <option value="mini">{d.echelles.size.mini}</option>
         <option value="normale">{d.echelles.size.normale}</option>
         <option value="geante">{d.echelles.size.geante}</option>
+      </select>
+
+      <label htmlFor="priceLevel">Prix, l’étiquette</label>
+      <select
+        id="priceLevel"
+        value={fiche.priceLevel ?? ''}
+        onChange={(e) => maj('priceLevel', (e.target.value || null) as Glacier['priceLevel'])}
+      >
+        <option value="">—</option>
+        <option value="pas-cher">{d.echelles.niveau['pas-cher']}</option>
+        <option value="norme">{d.echelles.niveau.norme}</option>
+        <option value="cher">{d.echelles.niveau.cher}</option>
       </select>
 
       <label htmlFor="price">Prix, en euros</label>

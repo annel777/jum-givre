@@ -1,4 +1,4 @@
-import type { BonusKey, Locale, Size, Unite, Welcome } from './types';
+import type { BonusKey, Locale, Niveau, Size, Unite, Welcome } from './types';
 
 export const LOCALES: Locale[] = ['fr', 'en'];
 
@@ -54,6 +54,8 @@ type Dict = {
     attribution: string;
   };
   fiche: {
+    depuis: (annee: number) => string;
+    aSavoir: string;
     notreNote: string;
     coupDoeil: string;
     gout: string;
@@ -102,6 +104,7 @@ type Dict = {
   echelles: {
     size: Record<Size, string>;
     welcome: Record<Welcome, string>;
+    niveau: Record<Niveau, string>;
     unite: Record<Unite, string>;
     uniteCourte: Record<Unite, string>;
     bonus: Record<BonusKey, string>;
@@ -145,6 +148,8 @@ const fr: Dict = {
       'Fond de carte &copy; <a href="https://www.openstreetmap.org/copyright">contributeurs OpenStreetMap</a>',
   },
   fiche: {
+    depuis: (annee) => `Glacier depuis ${annee}`,
+    aSavoir: 'Bon à savoir',
     notreNote: 'Notre note',
     coupDoeil: 'En un coup d’œil',
     gout: 'Goût',
@@ -198,6 +203,7 @@ const fr: Dict = {
   echelles: {
     size: { mini: 'Mini', normale: 'Normale', geante: 'Géante' },
     welcome: { bof: 'Bof', sympa: 'Sympa', super: 'Super' },
+    niveau: { 'pas-cher': 'Pas cher', norme: 'Dans la norme', cher: 'Cher' },
     unite: { boule: 'la boule', pot: 'le pot', cornet: 'le cornet' },
     uniteCourte: { boule: 'boule', pot: 'pot', cornet: 'cornet' },
     bonus: {
@@ -249,6 +255,8 @@ const en: Dict = {
       'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
   },
   fiche: {
+    depuis: (annee) => `Making ice cream since ${annee}`,
+    aSavoir: 'Good to know',
     notreNote: 'Our rating',
     coupDoeil: 'At a glance',
     gout: 'Taste',
@@ -302,6 +310,7 @@ const en: Dict = {
   echelles: {
     size: { mini: 'Small', normale: 'Regular', geante: 'Giant' },
     welcome: { bof: 'Meh', sympa: 'Nice', super: 'Great' },
+    niveau: { 'pas-cher': 'Cheap', norme: 'Average', cher: 'Expensive' },
     unite: { boule: 'one scoop', pot: 'one cup', cornet: 'one cone' },
     uniteCourte: { boule: 'scoop', pot: 'cup', cornet: 'cone' },
     bonus: {

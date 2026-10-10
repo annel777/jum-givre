@@ -240,6 +240,12 @@ section.fiche-section + section.fiche-section {
   font-weight: 600;
   margin-top: 4px;
 }
+.fiche-haut .depuis {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ardoise);
+}
 .note-gout {
   margin-left: auto;
   flex: none;

@@ -1,6 +1,11 @@
 {
   "slug": "niva-gelato",
   "name": "NIVA Gelato Italiano",
+  "since": null,
+  "note": {
+    "fr": "",
+    "en": ""
+  },
   "status": "a-tester",
   "visitDate": null,
   "area": {
@@ -9,6 +14,7 @@
   },
   "taste": null,
   "size": null,
+  "priceLevel": null,
   "price": null,
   "priceUnit": null,
   "welcome": null,
