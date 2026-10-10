@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from 'react';
 
+import { GrilleAdmin } from './GrilleAdmin';
 import { BONUS_KEYS, type Glacier } from '@/lib/types';
 import { t } from '@/lib/i18n';
 
@@ -44,6 +45,7 @@ export function EspaceSaisie() {
   const [connecte, setConnecte] = useState(false);
   const [motDePasse, setMotDePasse] = useState('');
   const [slugs, setSlugs] = useState<string[]>([]);
+  const [fiches, setFiches] = useState<Glacier[] | null>(null);
   const [fiche, setFiche] = useState<Glacier>(VIDE);
   const [message, setMessage] = useState<string | null>(null);
   const [erreurs, setErreurs] = useState<string[]>([]);
@@ -52,6 +54,14 @@ export function EspaceSaisie() {
   const majliste = useCallback(async () => {
     const r = await fetch('/api/admin/glacier/');
     if (r.ok) setSlugs(((await r.json()) as { slugs: string[] }).slugs);
+  }, []);
+
+  /** Toutes les fiches en un aller-retour : c'est la grille qui les affiche. */
+  const majgrille = useCallback(async () => {
+    const r = await fetch('/api/admin/glacier/?tout=1');
+    if (!r.ok) return;
+    const { fiches: lues } = (await r.json()) as { fiches: Glacier[] };
+    setFiches([...lues].sort((a, b) => a.name.localeCompare(b.name, 'fr')));
   }, []);
 
   async function connexion(e: React.FormEvent) {
@@ -68,6 +78,7 @@ export function EspaceSaisie() {
       setConnecte(true);
       setMotDePasse('');
       void majliste();
+      void majgrille();
     } else {
       setErreurs([((await r.json()) as { erreur: string }).erreur]);
     }
@@ -100,6 +111,7 @@ export function EspaceSaisie() {
     if (r.ok) {
       setMessage(`Enregistré. Le site se reconstruit, comptez une minute.`);
       void majliste();
+      void majgrille();
     } else {
       setErreurs(corps.erreurs ?? [corps.erreur ?? 'Enregistrement refusé']);
     }
@@ -107,6 +119,14 @@ export function EspaceSaisie() {
 
   const maj = <C extends keyof Glacier>(cle: C, valeur: Glacier[C]) =>
     setFiche((f) => ({ ...f, [cle]: valeur }));
+
+  /** La grille a déjà la fiche en main : inutile de la redemander au dépôt. */
+  function ouvrirDansFormulaire(choisie: Glacier) {
+    setMessage(null);
+    setErreurs([]);
+    setFiche(choisie);
+    document.getElementById('formulaire')?.scrollIntoView({ block: 'start' });
+  }
 
   if (!connecte) {
     return (
@@ -130,8 +150,26 @@ export function EspaceSaisie() {
   }
 
   return (
-    <form className="prose saisie" onSubmit={enregistrer}>
-      <h2>Espace de saisie</h2>
+    <>
+      <section className="prose saisie">
+        <h2>La grille de qualification</h2>
+        {fiches === null ? (
+          <p className="petit">Lecture des fiches…</p>
+        ) : (
+          <GrilleAdmin
+            fiches={fiches}
+            onEditer={ouvrirDansFormulaire}
+            onEnregistree={(f) =>
+              setFiches((actuelles) =>
+                (actuelles ?? []).map((a) => (a.slug === f.slug ? f : a)),
+              )
+            }
+          />
+        )}
+      </section>
+
+      <form className="prose saisie" onSubmit={enregistrer}>
+        <h2 id="formulaire">Le détail d’une fiche</h2>
 
       <label htmlFor="choix">Fiche à modifier</label>
       <select id="choix" defaultValue="" onChange={(e) => void charger(e.target.value)}>
@@ -445,6 +483,7 @@ export function EspaceSaisie() {
       <button className="filtre" type="submit" disabled={occupe}>
         {occupe ? 'Enregistrement…' : 'Enregistrer la fiche'}
       </button>
-    </form>
+      </form>
+    </>
   );
 }
