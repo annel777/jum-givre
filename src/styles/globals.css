@@ -833,6 +833,35 @@ section.fiche-section + section.fiche-section {
   margin: 10px 0;
 }
 
+/* Les bandeaux d'état de l'espace de saisie : jeton GitHub, surtout. */
+.bandeau {
+  background: var(--ciel);
+  border: var(--trait) solid var(--mer-fonce);
+  border-radius: 16px;
+  padding: 12px 16px;
+  margin: 10px 0 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.bandeau-attention {
+  background: var(--soleil);
+}
+/* L'alerte est rose, et garde un contraste suffisant pour le texte foncé. */
+.bandeau-alerte {
+  background: var(--saumon);
+}
+.bandeau code {
+  background: var(--blanc);
+  border: 2px solid var(--mer-fonce);
+  border-radius: 6px;
+  padding: 0 5px;
+  font-size: 0.9em;
+}
+.bandeau a {
+  font-weight: 800;
+}
+
 /* Contenu éditorial : méthode, mentions légales, confidentialité */
 .prose {
   background: var(--blanc);

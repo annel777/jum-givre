@@ -2,7 +2,9 @@
 
 import { useCallback, useState } from 'react';
 
+import { EtatJetonGitHub } from './EtatJetonGitHub';
 import { GrilleAdmin } from './GrilleAdmin';
+import type { EtatJeton } from '@/lib/depot';
 import { BONUS_KEYS, type Glacier } from '@/lib/types';
 import { t } from '@/lib/i18n';
 
@@ -46,6 +48,7 @@ export function EspaceSaisie() {
   const [motDePasse, setMotDePasse] = useState('');
   const [slugs, setSlugs] = useState<string[]>([]);
   const [fiches, setFiches] = useState<Glacier[] | null>(null);
+  const [jeton, setJeton] = useState<EtatJeton | { erreur: string } | null>(null);
   const [fiche, setFiche] = useState<Glacier>(VIDE);
   const [message, setMessage] = useState<string | null>(null);
   const [erreurs, setErreurs] = useState<string[]>([]);
@@ -54,6 +57,12 @@ export function EspaceSaisie() {
   const majliste = useCallback(async () => {
     const r = await fetch('/api/admin/glacier/');
     if (r.ok) setSlugs(((await r.json()) as { slugs: string[] }).slugs);
+  }, []);
+
+  /** Le jeton GitHub expire : sa date s'affiche avant qu'on commence à saisir. */
+  const majjeton = useCallback(async () => {
+    const r = await fetch('/api/admin/jeton/');
+    setJeton((await r.json()) as EtatJeton | { erreur: string });
   }, []);
 
   /** Toutes les fiches en un aller-retour : c'est la grille qui les affiche. */
@@ -79,6 +88,7 @@ export function EspaceSaisie() {
       setMotDePasse('');
       void majliste();
       void majgrille();
+      void majjeton();
     } else {
       setErreurs([((await r.json()) as { erreur: string }).erreur]);
     }
@@ -153,6 +163,7 @@ export function EspaceSaisie() {
     <>
       <section className="prose saisie">
         <h2>La grille de qualification</h2>
+        <EtatJetonGitHub etat={jeton} />
         {fiches === null ? (
           <p className="petit">Lecture des fiches…</p>
         ) : (

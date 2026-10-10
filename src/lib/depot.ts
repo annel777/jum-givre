@@ -82,3 +82,41 @@ export async function enregistrerFiche(
   const { commit } = (await r.json()) as { commit: { sha: string } };
   return { commit: commit.sha };
 }
+
+/**
+ * L'état du jeton GitHub.
+ *
+ * Un jeton à portée restreinte a une date d'expiration, et GitHub la renvoie
+ * dans l'en-tête `Github-Authentication-Token-Expiration` de n'importe quelle
+ * réponse authentifiée. On la lit donc sur une requête bon marché, plutôt que
+ * de demander à quelqu'un de retenir la date.
+ *
+ * Le jour où le jeton expire, l'espace de saisie cesse d'enregistrer. Autant
+ * l'annoncer avant.
+ */
+export type EtatJeton =
+  | { etat: 'absent' }
+  | { etat: 'refuse'; code: number }
+  | { etat: 'valide'; expiration: string | null; joursRestants: number | null };
+
+export async function etatJeton(): Promise<EtatJeton> {
+  if (!process.env.GITHUB_TOKEN) return { etat: 'absent' };
+
+  const r = await fetch(`${API}/repos/${DEPOT}`, { headers: entetes(), cache: 'no-store' });
+
+  // 401 : jeton expiré ou révoqué. 403 : droits retirés. Dans les deux cas, plus d'écriture.
+  if (r.status === 401 || r.status === 403) return { etat: 'refuse', code: r.status };
+  if (!r.ok) throw new Error(`GitHub a répondu ${r.status} à la vérification du jeton`);
+
+  const brut = r.headers.get('github-authentication-token-expiration');
+  if (!brut) return { etat: 'valide', expiration: null, joursRestants: null };
+
+  // GitHub écrit « 2026-10-10 13:22:07 UTC », que Date ne lit pas partout.
+  const date = new Date(`${brut.replace(' ', 'T').replace(' UTC', 'Z')}`);
+  if (Number.isNaN(date.getTime())) {
+    return { etat: 'valide', expiration: null, joursRestants: null };
+  }
+
+  const jours = Math.floor((date.getTime() - Date.now()) / 86_400_000);
+  return { etat: 'valide', expiration: date.toISOString(), joursRestants: jours };
+}
