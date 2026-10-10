@@ -15,7 +15,16 @@ export async function POST(requete: Request) {
   // Une réponse lente uniformise le temps de réponse, bon ou mauvais mot de passe.
   await new Promise((r) => setTimeout(r, 400));
 
-  if (!motDePasse || !motDePasseValide(motDePasse)) {
+  // Sans ADMIN_PASSWORD, la vérification lève : autant le dire plutôt que
+  // de laisser la page de connexion échouer sans message.
+  let valide = false;
+  try {
+    valide = Boolean(motDePasse) && motDePasseValide(motDePasse);
+  } catch (e) {
+    return NextResponse.json({ erreur: (e as Error).message }, { status: 500 });
+  }
+
+  if (!valide) {
     return NextResponse.json({ erreur: 'Mot de passe incorrect' }, { status: 401 });
   }
 

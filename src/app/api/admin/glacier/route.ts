@@ -11,9 +11,19 @@ const refus = () => NextResponse.json({ erreur: 'Session expirée' }, { status: 
 export async function GET(requete: Request) {
   if (!(await sessionOuverte())) return refus();
 
-  const slug = new URL(requete.url).searchParams.get('slug');
+  const parametres = new URL(requete.url).searchParams;
+  const slug = parametres.get('slug');
 
   try {
+    // La grille a besoin de tout d'un coup : un aller-retour au lieu de dix.
+    if (parametres.get('tout')) {
+      const slugs = await listerFiches();
+      const fiches = await Promise.all(slugs.map((s) => lireFiche(s)));
+      return NextResponse.json({
+        fiches: fiches.filter((f) => f !== null).map((f) => f!.contenu),
+      });
+    }
+
     if (!slug) return NextResponse.json({ slugs: await listerFiches() });
 
     const fiche = await lireFiche(slug);

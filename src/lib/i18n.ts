@@ -91,6 +91,12 @@ type Dict = {
     jusqua: (prix: string) => string;
     resultats: (n: number) => string;
     aucun: string;
+    grille: string;
+    glacierCol: string;
+    rangOrdre: (n: number) => string;
+    nonRenseigne: string;
+    surSept: string;
+    defile: string;
   };
   articles: {
     titre: string;
@@ -189,6 +195,12 @@ const fr: Dict = {
     jusqua: (prix) => `Jusqu'à ${prix}`,
     resultats: (n) => `${n} ${n > 1 ? 'glaciers' : 'glacier'}`,
     aucun: 'Aucun glacier ne correspond à ce filtre.',
+    grille: 'La grille de comparaison',
+    glacierCol: 'Glacier',
+    rangOrdre: (n) => `Numéro ${n} du classement`,
+    nonRenseigne: 'Non renseigné',
+    surSept: 'points bonus sur 7',
+    defile: 'Le tableau se fait glisser vers la droite.',
   },
   articles: {
     titre: 'Les articles',
@@ -296,6 +308,12 @@ const en: Dict = {
     jusqua: (prix) => `Up to ${prix}`,
     resultats: (n) => `${n} ${n > 1 ? 'shops' : 'shop'}`,
     aucun: 'No shop matches this filter.',
+    grille: 'The comparison grid',
+    glacierCol: 'Shop',
+    rangOrdre: (n) => `Number ${n} in the ranking`,
+    nonRenseigne: 'Not recorded',
+    surSept: 'bonus points out of 7',
+    defile: 'Drag the table sideways to see every column.',
   },
   articles: {
     titre: 'Articles',
