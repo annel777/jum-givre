@@ -151,9 +151,31 @@ Dans le corps, deux composants sont disponibles :
 Les deux langues se publient le même jour, comme le veut le calendrier éditorial.
 Rien d'autre à toucher : l'index, le sitemap et les liens croisés suivent au build.
 
+## Le statut de l'éditeur
+
+Le site est publié **à titre non professionnel** : aucune publicité, aucun
+partenariat, aucune vente. Ce statut dispense de publier l'adresse de l'éditeur,
+à condition de l'avoir communiquée à l'hébergeur — article 1-1-II de la loi du
+21 juin 2004, où la loi SREN du 21 mai 2024 a déplacé cette règle.
+
+C'est un choix, et il est réversible. Le jour où le site se monétise — publicité,
+affiliation, vente, ou simplement des frais passés en charge sur une société — le
+statut bascule en éditeur professionnel et le bloc société redevient obligatoire :
+dénomination, forme, capital, adresse, SIRET, RCS, TVA. Deux choses à revoir ce
+jour-là, en plus des mentions :
+
+- le pied de page promet « Glaces payées par la famille, aucun partenariat ». Un
+  partenariat le rend faux, et la loi impose d'identifier clairement tout contenu
+  sponsorisé ;
+- les jumeaux ne seraient plus deux enfants qui donnent leur avis sur un site
+  familial, mais l'attrait éditorial d'une activité qui rapporte. Ce n'est pas le
+  même registre. À poser à un juriste avant le reste.
+
 ## Ce qui reste à faire avant la mise en ligne
 
-- [ ] Récupérer le téléphone de Vercel, obligatoire pour l'hébergeur
+- [ ] Récupérer le téléphone de Vercel, obligatoire pour l'hébergeur. Les
+      annuaires se contredisent (951 383-6898 chez Creditsafe et Crunchbase,
+      415 398-5463 chez D&B) : à demander au support plutôt qu'à recopier
 - [ ] Faire relire les mentions légales et la politique de confidentialité
 - [ ] Placer les 8 glaciers « à tester » sur la carte (`npm run geo`, ou au fil
       des visites)
