@@ -185,18 +185,27 @@ function MentionsLegales({ locale }: { locale: Locale }) {
 
   return (
     <>
+      {/*
+        Éditeur non professionnel. Un particulier qui publie sans publicité, sans
+        partenariat et sans vente n'a pas à publier son adresse : il la confie à
+        l'hébergeur, qui la conserve. C'est l'article 1-1-II de la loi du 21 juin
+        2004, où cette règle a été déplacée par la loi SREN du 21 mai 2024 — elle
+        était à l'article 6-III-2, que citent encore beaucoup de modèles périmés.
+
+        Le jour où le site se monétise, ce statut tombe et le bloc société
+        redevient obligatoire : dénomination, forme, capital, adresse, SIRET, RCS,
+        TVA. Ce bloc existait ici, il est à relire dans l'historique git de ce
+        fichier plutôt qu'à réécrire de mémoire.
+      */}
       <h2>{fr ? 'Éditeur du site' : 'Site publisher'}</h2>
       <p>
-        {fr ? 'LEROY SAS — marque Studio Leroy' : 'LEROY SAS — trading as Studio Leroy'}
+        {fr
+          ? 'Site personnel, édité à titre non professionnel : aucune publicité, aucun partenariat, aucune vente.'
+          : 'A personal site, published on a non-professional basis: no advertising, no partnerships, nothing for sale.'}
         <br />
-        {fr ? 'Société par actions simplifiée au capital de 1 000 €' : 'Simplified joint-stock company, share capital €1,000'}
-        <br />
-        {fr ? 'Siège social : ' : 'Registered office: '}210 boulevard Leader, 06400 Cannes
-        {fr ? '' : ', France'}
-        <br />
-        SIRET : 987 771 276 00019
-        <br />
-        {fr ? 'TVA intracommunautaire : ' : 'VAT number: '}FR21987771276
+        {fr
+          ? 'À ce titre, l’éditeur ne publie pas son adresse postale (article 1-1-II de la loi du 21 juin 2004). Elle a été communiquée à l’hébergeur, qui la conserve et peut la transmettre à l’autorité judiciaire.'
+          : 'On that basis the publisher does not disclose a postal address (article 1-1-II of the French Act of 21 June 2004). It has been given to the hosting provider, which keeps it and may pass it to the courts.'}
         <br />
         <Courriel />
       </p>
