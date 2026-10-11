@@ -29,6 +29,7 @@ function LignePrix({ glacier: g, locale }: { glacier: Glacier; locale: Locale })
       </span>
       {g.priceLevel ? (
         <span className="choix">
+          <span aria-hidden="true">💸 </span>
           {e.niveau[g.priceLevel]}
           {/* Les euros, et ce qu'ils achètent, en précision de l'étiquette. */}
           {euros && (

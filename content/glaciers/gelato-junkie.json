@@ -14,7 +14,7 @@
   },
   "taste": 5,
   "size": "geante",
-  "priceLevel": null,
+  "priceLevel": "norme",
   "price": null,
   "priceUnit": null,
   "welcome": "sympa",
