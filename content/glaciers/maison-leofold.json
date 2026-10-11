@@ -1,6 +1,6 @@
 {
-  "slug": "maison-leofolfd",
-  "name": "Maison Leofolfd",
+  "slug": "maison-leofold",
+  "name": "Maison Leofold",
   "since": null,
   "note": {
     "fr": "Sur les 32 bacs, 1 est bio et 2 sont sans sucre.",
@@ -12,10 +12,10 @@
     "fr": "Juan-les-Pins",
     "en": "Juan-les-Pins"
   },
-  "taste": null,
+  "taste": 4.5,
   "size": "geante",
   "priceLevel": null,
-  "price": null,
+  "price": 3.5,
   "priceUnit": "cornet",
   "welcome": "sympa",
   "bonus": [
@@ -61,9 +61,9 @@
     "en": ""
   },
   "twins": [],
-  "address": "Juan-les-Pins",
-  "city": "Juan-les-Pins",
-  "postalCode": null,
+  "address": "11 boulevard Édouard Baudoin, 06160 Antibes",
+  "city": "Antibes",
+  "postalCode": "06160",
   "coords": null,
   "hours": {
     "fr": "",
