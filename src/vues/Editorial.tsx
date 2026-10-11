@@ -1,4 +1,5 @@
 import { Courriel } from '@/components/Courriel';
+import { BONUS_KEYS } from '@/lib/types';
 import { Entete, Pied } from '@/components/SiteChrome';
 import { t, type RouteKey } from '@/lib/i18n';
 import type { Locale } from '@/lib/types';
@@ -44,11 +45,12 @@ function Methode({ locale }: { locale: Locale }) {
           pot ou au cornet. Chaque fiche dit donc à quoi correspond son prix, pour qu&apos;on ne
           compare pas un pot avec une boule.
         </p>
-        <h2>Les 7 points bonus</h2>
+        <h2>Les {BONUS_KEYS.length} points bonus</h2>
         <p>Un point chacun, cochés ou non : </p>
         <ul>
           <li>Bien placé</li>
           <li>Terrasse</li>
+          <li>On peut s&apos;asseoir</li>
           <li>Déco et univers</li>
           <li>Beaucoup de parfums</li>
           <li>Parfums originaux</li>
@@ -57,7 +59,7 @@ function Methode({ locale }: { locale: Locale }) {
         </ul>
         <h2>Le classement</h2>
         <p>
-          Le classement additionne le goût, sur 5, et les points bonus, sur 7. Ce total sert
+          Le classement additionne le goût, sur 5, et les points bonus, sur {BONUS_KEYS.length}. Ce total sert
           uniquement à ranger les glaciers les uns par rapport aux autres : il n&apos;est jamais
           affiché comme une note.
         </p>
@@ -102,11 +104,12 @@ function Methode({ locale }: { locale: Locale }) {
         cone. Each review says what its price covers, so that a cup is never compared with a
         scoop.
       </p>
-      <h2>The 7 bonus points</h2>
+      <h2>The {BONUS_KEYS.length} bonus points</h2>
       <p>One point each, ticked or not:</p>
       <ul>
         <li>Good spot</li>
         <li>Terrace</li>
+        <li>Somewhere to sit</li>
         <li>Decor and atmosphere</li>
         <li>Lots of flavours</li>
         <li>Unusual flavours</li>
@@ -115,7 +118,7 @@ function Methode({ locale }: { locale: Locale }) {
       </ul>
       <h2>The ranking</h2>
       <p>
-        The ranking adds taste, out of 5, and bonus points, out of 7. That total only orders the
+        The ranking adds taste, out of 5, and bonus points, out of {BONUS_KEYS.length}. That total only orders the
         shops against each other; it is never shown as a score.
       </p>
       <h2>What these ratings are worth</h2>

@@ -9,10 +9,17 @@ export type Niveau = 'pas-cher' | 'norme' | 'cher';
 /** Ce qu'on achète : tous les glaciers ne vendent pas à la boule. */
 export type Unite = 'boule' | 'pot' | 'cornet';
 
-/** Les 7 points bonus du brief, 1 point chacun. */
+/**
+ * Les points bonus, 1 point chacun. Le brief en comptait 7 ; « On peut
+ * s'asseoir » est venu du terrain, et ce n'est pas la terrasse : un banc, un
+ * tabouret ou un muret suffisent, et une terrasse peut être réservée aux
+ * consommateurs assis. Les compteurs se déduisent de cette liste, nulle part
+ * d'un chiffre écrit à la main.
+ */
 export const BONUS_KEYS = [
   'bien-place',
   'terrasse',
+  'assis',
   'deco',
   'choix',
   'originaux',

@@ -11,6 +11,7 @@ const d = t('fr');
 const BONUS_COURT: Record<BonusKey, string> = {
   'bien-place': 'Placé',
   terrasse: 'Terrasse',
+  assis: 'Assis',
   deco: 'Déco',
   choix: 'Choix',
   originaux: 'Origin.',
