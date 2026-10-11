@@ -1,0 +1,50 @@
+{
+  "slug": "bianca",
+  "name": "Bianca",
+  "since": null,
+  "note": {
+    "fr": "Trouvé fermé lors de notre passage, en octobre 2026. On retentera.",
+    "en": "Closed when we came by, in October 2026. We will try again."
+  },
+  "status": "a-tester",
+  "visitDate": null,
+  "area": {
+    "fr": "Juan-les-Pins",
+    "en": "Juan-les-Pins"
+  },
+  "taste": null,
+  "size": null,
+  "priceLevel": null,
+  "price": null,
+  "priceUnit": null,
+  "welcome": null,
+  "bonus": [],
+  "flavourCount": null,
+  "flavours": {
+    "fr": [],
+    "en": []
+  },
+  "liked": {
+    "fr": [],
+    "en": []
+  },
+  "disliked": {
+    "fr": [],
+    "en": []
+  },
+  "topping": {
+    "fr": "",
+    "en": ""
+  },
+  "twins": [],
+  "address": "Juan-les-Pins",
+  "city": "Juan-les-Pins",
+  "postalCode": null,
+  "coords": null,
+  "hours": {
+    "fr": "",
+    "en": ""
+  },
+  "phone": null,
+  "website": null
+}
