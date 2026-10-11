@@ -250,6 +250,14 @@ export function FicheGlacier({
               )}
             </span>
           </li>
+          {g.flavourCount !== null && (
+            <li>
+              <span className="ico" aria-hidden="true">
+                🍨
+              </span>
+              <span>{d.fiche.bacs(g.flavourCount)}</span>
+            </li>
+          )}
           {g.note[locale] && (
             <li>
               <span className="ico" aria-hidden="true">

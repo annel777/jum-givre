@@ -24,6 +24,7 @@
     "originaux",
     "light"
   ],
+  "flavourCount": null,
   "flavours": {
     "fr": [
       "Oreo",
@@ -69,6 +70,8 @@
     }
   ],
   "address": "32 rue du Commandant André, 06400 Cannes",
+  "city": "Cannes",
+  "postalCode": "06400",
   "coords": [
     43.5507123,
     7.020178

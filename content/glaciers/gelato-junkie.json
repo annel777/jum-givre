@@ -24,6 +24,7 @@
     "originaux",
     "light"
   ],
+  "flavourCount": null,
   "flavours": {
     "fr": [],
     "en": []
@@ -48,6 +49,8 @@
   },
   "twins": [],
   "address": "4 rue Félix Faure, 06400 Cannes",
+  "city": "Cannes",
+  "postalCode": "06400",
   "coords": [
     43.5521279,
     7.0131176

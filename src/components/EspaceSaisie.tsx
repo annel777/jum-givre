@@ -20,6 +20,7 @@ const VIDE: Glacier = {
   area: { fr: '', en: '' },
   taste: null,
   size: null,
+  flavourCount: null,
   priceLevel: null,
   price: null,
   priceUnit: null,
@@ -34,6 +35,8 @@ const VIDE: Glacier = {
     { nick: '', fr: '', en: '' },
   ],
   address: '',
+  city: 'Cannes',
+  postalCode: '06400',
   coords: null,
   hours: { fr: '', en: '' },
   phone: null,
@@ -280,6 +283,20 @@ export function EspaceSaisie() {
         <option value="geante">{d.echelles.size.geante}</option>
       </select>
 
+      <label htmlFor="flavourCount">Parfums en vitrine, en comptant les bacs</label>
+      <input
+        id="flavourCount"
+        type="number"
+        min={1}
+        max={500}
+        step={1}
+        placeholder="32"
+        value={fiche.flavourCount ?? ''}
+        onChange={(e) =>
+          maj('flavourCount', e.target.value === '' ? null : Number(e.target.value))
+        }
+      />
+
       <label htmlFor="priceLevel">Prix, l’étiquette</label>
       <select
         id="priceLevel"
@@ -432,6 +449,23 @@ export function EspaceSaisie() {
         value={fiche.address}
         onChange={(e) => maj('address', e.target.value)}
         required
+      />
+
+      <label htmlFor="city">Ville</label>
+      <input
+        id="city"
+        value={fiche.city}
+        onChange={(e) => maj('city', e.target.value)}
+        required
+      />
+
+      <label htmlFor="postalCode">Code postal</label>
+      <input
+        id="postalCode"
+        inputMode="numeric"
+        placeholder="06400"
+        value={fiche.postalCode ?? ''}
+        onChange={(e) => maj('postalCode', e.target.value || null)}
       />
 
       <label htmlFor="lat">Latitude, par clic droit sur la devanture</label>

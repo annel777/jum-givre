@@ -125,6 +125,9 @@ export function GrilleAdmin({
               <th scope="col">Statut</th>
               <th scope="col">{d.fiche.gout}</th>
               <th scope="col">{d.fiche.taille}</th>
+              <th scope="col">
+                <abbr title="Parfums en vitrine, en comptant les bacs">Bacs</abbr>
+              </th>
               <th scope="col">{d.fiche.prix}</th>
               <th scope="col">Euros</th>
               <th scope="col">Unité</th>
@@ -206,6 +209,29 @@ export function GrilleAdmin({
                       <option value="normale">{d.echelles.size.normale}</option>
                       <option value="geante">{d.echelles.size.geante}</option>
                     </select>
+                  </td>
+
+                  <td>
+                    <label className="sr-only" htmlFor={`bacs-${f.slug}`}>
+                      Parfums en vitrine chez {f.name}
+                    </label>
+                    <input
+                      id={`bacs-${f.slug}`}
+                      className="champ-bacs"
+                      type="number"
+                      min={1}
+                      max={500}
+                      step={1}
+                      inputMode="numeric"
+                      value={g.flavourCount ?? ''}
+                      onChange={(e) =>
+                        maj(
+                          f,
+                          'flavourCount',
+                          e.target.value === '' ? null : Number(e.target.value),
+                        )
+                      }
+                    />
                   </td>
 
                   <td>

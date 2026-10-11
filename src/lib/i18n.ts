@@ -1,5 +1,14 @@
 import type { BonusKey, Locale, Niveau, Size, Unite, Welcome } from './types';
 
+/**
+ * « Cannes (Le Suquet) », mais « Juan-les-Pins » tout court quand le quartier
+ * se confond avec la ville : une parenthèse qui répète ne dit rien.
+ */
+function lieuLisible(ville: string, quartier: string): string {
+  const q = quartier.trim();
+  return q && q !== ville.trim() ? `${ville} (${q})` : ville;
+}
+
 export const LOCALES: Locale[] = ['fr', 'en'];
 
 /** Les pages du site, avec leur adresse dans chaque langue. */
@@ -78,7 +87,8 @@ type Dict = {
     dateInconnue: string;
     pasEncoreTeste: string;
     sur5: (n: number) => string;
-    description: (nom: string, quartier: string, teste: boolean) => string;
+    description: (nom: string, quartier: string, ville: string, teste: boolean) => string;
+    bacs: (n: number) => string;
     obtenu: string;
     nonObtenu: string;
   };
@@ -178,10 +188,11 @@ const fr: Dict = {
     dateInconnue: 'Date de visite à renseigner. Les infos sont à confirmer sur place.',
     pasEncoreTeste: 'Ce glacier n’est pas encore testé. Les jumeaux y passeront bientôt.',
     sur5: (n) => `${n.toString().replace('.', ',')} boules sur 5`,
-    description: (nom, quartier, teste) =>
+    description: (nom, quartier, ville, teste) =>
       teste
-        ? `${nom}, glacier à Cannes (${quartier}) : notre note sur le goût, la taille des boules, le prix d’une boule, les parfums goûtés et le topping qu’on a adoré.`
-        : `${nom}, glacier à Cannes (${quartier}) : pas encore goûté par les jumeaux. Adresse, horaires et place sur la carte des glaciers de Cannes.`,
+        ? `${nom}, glacier à ${lieuLisible(ville, quartier)} : notre note sur le goût, la taille des boules, le prix d’une boule, les parfums goûtés et le topping qu’on a adoré.`
+        : `${nom}, glacier à ${lieuLisible(ville, quartier)} : pas encore goûté par les jumeaux. Adresse, horaires et place sur la carte du guide.`,
+    bacs: (n) => `${n} parfums en vitrine`,
     obtenu: 'Obtenu : ',
     nonObtenu: 'Non obtenu : ',
   },
@@ -291,10 +302,11 @@ const en: Dict = {
     dateInconnue: 'Visit date still to be recorded. Please confirm the details on site.',
     pasEncoreTeste: 'This shop has not been tasted yet. The twins will drop by soon.',
     sur5: (n) => `${n} scoops out of 5`,
-    description: (nom, quartier, teste) =>
+    description: (nom, quartier, ville, teste) =>
       teste
-        ? `${nom}, ice cream shop in Cannes (${quartier}): our taste rating, scoop size, price per scoop, the flavours we tried and the topping we loved.`
-        : `${nom}, ice cream shop in Cannes (${quartier}): not tasted yet by the twins. Address, opening hours and its place on the Cannes ice cream map.`,
+        ? `${nom}, ice cream shop in ${lieuLisible(ville, quartier)}: our taste rating, scoop size, price per scoop, the flavours we tried and the topping we loved.`
+        : `${nom}, ice cream shop in ${lieuLisible(ville, quartier)}: not tasted yet by the twins. Address, opening hours and its place on the guide's map.`,
+    bacs: (n) => `${n} flavours on the counter`,
     obtenu: 'Earned: ',
     nonObtenu: 'Not earned: ',
   },

@@ -50,12 +50,18 @@ export type Glacier = {
   priceUnit: Unite | null;
   welcome: Welcome | null;
   bonus: BonusKey[];
+  /** Le nombre de bacs en vitrine. Une mesure de la variété, qui se compte sans goûter. */
+  flavourCount: number | null;
   flavours: BilingueListe;
   liked: BilingueListe;
   disliked: BilingueListe;
   topping: Bilingue;
   twins: AvisJumeau[];
   address: string;
+  /** La ville. Jamais supposée : les méta et les données structurées la reprennent. */
+  city: string;
+  /** Le code postal, quand il est connu. */
+  postalCode: string | null;
   /** [latitude, longitude]. null tant que les coordonnées ne sont pas relevées. */
   coords: [number, number] | null;
   hours: Bilingue;

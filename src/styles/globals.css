@@ -793,6 +793,9 @@ section.fiche-section + section.fiche-section {
 .grille-admin .champ-prix {
   width: 5.5em;
 }
+.grille-admin .champ-bacs {
+  width: 4.5em;
+}
 .grille-admin input[type='checkbox'] {
   width: 22px;
   height: 22px;

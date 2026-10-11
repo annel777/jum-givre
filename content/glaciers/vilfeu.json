@@ -19,6 +19,7 @@
   "priceUnit": "boule",
   "welcome": null,
   "bonus": [],
+  "flavourCount": null,
   "flavours": {
     "fr": [],
     "en": []
@@ -37,6 +38,8 @@
   },
   "twins": [],
   "address": "Près du Palais des Festivals, 06400 Cannes",
+  "city": "Cannes",
+  "postalCode": "06400",
   "coords": null,
   "hours": {
     "fr": "",
