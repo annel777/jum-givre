@@ -18,8 +18,8 @@ export function DonneesStructurees({ glacier: g, locale }: { glacier: Glacier; l
     address: {
       '@type': 'PostalAddress',
       streetAddress: g.address.split(',')[0]?.trim(),
-      addressLocality: 'Cannes',
-      postalCode: '06400',
+      addressLocality: g.city,
+      ...(g.postalCode ? { postalCode: g.postalCode } : {}),
       addressCountry: 'FR',
     },
   };

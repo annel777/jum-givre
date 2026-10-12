@@ -3,8 +3,8 @@
   "name": "Gelato Junkie",
   "since": null,
   "note": {
-    "fr": "",
-    "en": ""
+    "fr": "Ils livrent aussi des bacs à emporter, par Uber Eats.",
+    "en": "They also deliver tubs to take home, through Uber Eats."
   },
   "status": "teste",
   "visitDate": "2026-09",
@@ -14,7 +14,7 @@
   },
   "taste": 5,
   "size": "geante",
-  "priceLevel": null,
+  "priceLevel": "norme",
   "price": null,
   "priceUnit": null,
   "welcome": "sympa",
@@ -24,6 +24,7 @@
     "originaux",
     "light"
   ],
+  "flavourCount": null,
   "flavours": {
     "fr": [],
     "en": []
@@ -48,6 +49,8 @@
   },
   "twins": [],
   "address": "4 rue Félix Faure, 06400 Cannes",
+  "city": "Cannes",
+  "postalCode": "06400",
   "coords": [
     43.5521279,
     7.0131176

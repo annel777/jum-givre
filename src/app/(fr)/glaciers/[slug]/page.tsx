@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t('fr').fiche.description(
       glacier.name,
       glacier.area['fr'],
+      glacier.city,
       glacier.status === 'teste',
     ),
   });

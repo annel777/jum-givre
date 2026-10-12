@@ -24,6 +24,7 @@
     "originaux",
     "light"
   ],
+  "flavourCount": null,
   "flavours": {
     "fr": [
       "Oreo",
@@ -56,19 +57,10 @@
     "fr": "Les mini marshmallows ! Et la version signature, avec coulis maison sur la boule.",
     "en": "The mini marshmallows! And the signature version, with homemade sauce over the scoop."
   },
-  "twins": [
-    {
-      "nick": "Prénom 1",
-      "fr": "Son avis ici, avec ses mots à lui ou à elle.",
-      "en": "Their own words go here."
-    },
-    {
-      "nick": "Prénom 2",
-      "fr": "Son avis ici, avec ses mots à lui ou à elle.",
-      "en": "Their own words go here."
-    }
-  ],
+  "twins": [],
   "address": "32 rue du Commandant André, 06400 Cannes",
+  "city": "Cannes",
+  "postalCode": "06400",
   "coords": [
     43.5507123,
     7.020178

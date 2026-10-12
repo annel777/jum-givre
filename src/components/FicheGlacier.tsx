@@ -29,6 +29,7 @@ function LignePrix({ glacier: g, locale }: { glacier: Glacier; locale: Locale })
       </span>
       {g.priceLevel ? (
         <span className="choix">
+          <span aria-hidden="true">💸 </span>
           {e.niveau[g.priceLevel]}
           {/* Les euros, et ce qu'ils achètent, en précision de l'étiquette. */}
           {euros && (
@@ -250,6 +251,14 @@ export function FicheGlacier({
               )}
             </span>
           </li>
+          {g.flavourCount !== null && (
+            <li>
+              <span className="ico" aria-hidden="true">
+                🍨
+              </span>
+              <span>{d.fiche.bacs(g.flavourCount)}</span>
+            </li>
+          )}
           {g.note[locale] && (
             <li>
               <span className="ico" aria-hidden="true">

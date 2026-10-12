@@ -1,4 +1,5 @@
 import { Courriel } from '@/components/Courriel';
+import { BONUS_KEYS } from '@/lib/types';
 import { Entete, Pied } from '@/components/SiteChrome';
 import { t, type RouteKey } from '@/lib/i18n';
 import type { Locale } from '@/lib/types';
@@ -44,11 +45,12 @@ function Methode({ locale }: { locale: Locale }) {
           pot ou au cornet. Chaque fiche dit donc à quoi correspond son prix, pour qu&apos;on ne
           compare pas un pot avec une boule.
         </p>
-        <h2>Les 7 points bonus</h2>
+        <h2>Les {BONUS_KEYS.length} points bonus</h2>
         <p>Un point chacun, cochés ou non : </p>
         <ul>
           <li>Bien placé</li>
           <li>Terrasse</li>
+          <li>On peut s&apos;asseoir</li>
           <li>Déco et univers</li>
           <li>Beaucoup de parfums</li>
           <li>Parfums originaux</li>
@@ -57,7 +59,7 @@ function Methode({ locale }: { locale: Locale }) {
         </ul>
         <h2>Le classement</h2>
         <p>
-          Le classement additionne le goût, sur 5, et les points bonus, sur 7. Ce total sert
+          Le classement additionne le goût, sur 5, et les points bonus, sur {BONUS_KEYS.length}. Ce total sert
           uniquement à ranger les glaciers les uns par rapport aux autres : il n&apos;est jamais
           affiché comme une note.
         </p>
@@ -102,11 +104,12 @@ function Methode({ locale }: { locale: Locale }) {
         cone. Each review says what its price covers, so that a cup is never compared with a
         scoop.
       </p>
-      <h2>The 7 bonus points</h2>
+      <h2>The {BONUS_KEYS.length} bonus points</h2>
       <p>One point each, ticked or not:</p>
       <ul>
         <li>Good spot</li>
         <li>Terrace</li>
+        <li>Somewhere to sit</li>
         <li>Decor and atmosphere</li>
         <li>Lots of flavours</li>
         <li>Unusual flavours</li>
@@ -115,7 +118,7 @@ function Methode({ locale }: { locale: Locale }) {
       </ul>
       <h2>The ranking</h2>
       <p>
-        The ranking adds taste, out of 5, and bonus points, out of 7. That total only orders the
+        The ranking adds taste, out of 5, and bonus points, out of {BONUS_KEYS.length}. That total only orders the
         shops against each other; it is never shown as a score.
       </p>
       <h2>What these ratings are worth</h2>
@@ -185,18 +188,27 @@ function MentionsLegales({ locale }: { locale: Locale }) {
 
   return (
     <>
+      {/*
+        Éditeur non professionnel. Un particulier qui publie sans publicité, sans
+        partenariat et sans vente n'a pas à publier son adresse : il la confie à
+        l'hébergeur, qui la conserve. C'est l'article 1-1-II de la loi du 21 juin
+        2004, où cette règle a été déplacée par la loi SREN du 21 mai 2024 — elle
+        était à l'article 6-III-2, que citent encore beaucoup de modèles périmés.
+
+        Le jour où le site se monétise, ce statut tombe et le bloc société
+        redevient obligatoire : dénomination, forme, capital, adresse, SIRET, RCS,
+        TVA. Ce bloc existait ici, il est à relire dans l'historique git de ce
+        fichier plutôt qu'à réécrire de mémoire.
+      */}
       <h2>{fr ? 'Éditeur du site' : 'Site publisher'}</h2>
       <p>
-        {fr ? 'LEROY SAS — marque Studio Leroy' : 'LEROY SAS — trading as Studio Leroy'}
+        {fr
+          ? 'Site personnel : pas de publicité, pas de partenariat, rien à vendre.'
+          : 'A personal site: no advertising, no partnerships, nothing for sale.'}
         <br />
-        {fr ? 'Société par actions simplifiée au capital de 1 000 €' : 'Simplified joint-stock company, share capital €1,000'}
-        <br />
-        {fr ? 'Siège social : ' : 'Registered office: '}210 boulevard Leader, 06400 Cannes
-        {fr ? '' : ', France'}
-        <br />
-        SIRET : 987 771 276 00019
-        <br />
-        {fr ? 'TVA intracommunautaire : ' : 'VAT number: '}FR21987771276
+        {fr
+          ? 'L’éditeur n’est pas un professionnel, il ne publie donc pas d’adresse postale. L’hébergeur la connaît.'
+          : 'The publisher is not a professional, so no postal address is published here. The hosting provider has it.'}
         <br />
         <Courriel />
       </p>

@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { Boules } from './Boules';
 import { prixLisible, t } from '@/lib/i18n';
-import type { Glacier, Locale } from '@/lib/types';
+import { BONUS_KEYS, type Glacier, type Locale } from '@/lib/types';
 
 const VISAGES = { bof: '😐', sympa: '🙂', super: '🤩' } as const;
 
@@ -133,8 +133,9 @@ export function GrilleComparaison({
 
               <td>
                 <span className="grille-bonus">
-                  {g.bonus.length} <span aria-hidden="true">/ 7</span>
-                  <span className="sr-only">{d.classement.surSept}</span>
+                  {g.bonus.length}{' '}
+                  <span aria-hidden="true">/ {BONUS_KEYS.length}</span>
+                  <span className="sr-only">{d.classement.surTotal(BONUS_KEYS.length)}</span>
                 </span>
               </td>
             </tr>

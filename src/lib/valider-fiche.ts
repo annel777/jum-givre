@@ -93,6 +93,28 @@ export function validerFiche(brut: unknown): { fiche: Glacier } | { erreurs: str
     }
   }
 
+  // Un nombre de bacs : un entier, et une borne haute large mais finie.
+  const bacs = d.flavourCount;
+  let flavourCount: number | null = null;
+  if (bacs !== null && bacs !== undefined && bacs !== '') {
+    const n = Number(bacs);
+    if (!Number.isInteger(n) || n < 1 || n > 500) {
+      erreurs.push('flavourCount : un nombre entier de bacs, entre 1 et 500');
+    } else {
+      flavourCount = n;
+    }
+  }
+
+  const cp = d.postalCode;
+  let postalCode: string | null = null;
+  if (cp !== null && cp !== undefined && cp !== '') {
+    if (!/^\d{5}$/.test(String(cp))) {
+      erreurs.push('postalCode : cinq chiffres, ou vide');
+    } else {
+      postalCode = String(cp);
+    }
+  }
+
   const bonusBrut = Array.isArray(d.bonus) ? d.bonus.map(String) : [];
   const inconnus = bonusBrut.filter((b) => !BONUS_KEYS.includes(b as never));
   if (inconnus.length) erreurs.push(`bonus inconnus : ${inconnus.join(', ')}`);
@@ -141,12 +163,15 @@ export function validerFiche(brut: unknown): { fiche: Glacier } | { erreurs: str
       priceUnit: choix('priceUnit', UNITES) as Glacier['priceUnit'],
       welcome: choix('welcome', ACCUEILS) as Glacier['welcome'],
       bonus: bonusBrut as Glacier['bonus'],
+      flavourCount,
       flavours: listeBilingue('flavours'),
       liked: listeBilingue('liked'),
       disliked: listeBilingue('disliked'),
       topping: bilingue('topping'),
       twins,
       address: texte('address'),
+      city: texte('city'),
+      postalCode,
       coords,
       hours: bilingue('hours'),
       phone: (d.phone ? String(d.phone).trim() : null) || null,

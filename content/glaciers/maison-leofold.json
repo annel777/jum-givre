@@ -1,0 +1,74 @@
+{
+  "slug": "maison-leofold",
+  "name": "Maison Leofold",
+  "since": null,
+  "note": {
+    "fr": "Sur les 32 bacs, 1 est bio et 2 sont sans sucre.",
+    "en": "Of the 32 tubs, one is organic and two are sugar-free."
+  },
+  "status": "teste",
+  "visitDate": "2026-10",
+  "area": {
+    "fr": "Juan-les-Pins",
+    "en": "Juan-les-Pins"
+  },
+  "taste": 4.5,
+  "size": "geante",
+  "priceLevel": null,
+  "price": 3.5,
+  "priceUnit": "cornet",
+  "welcome": "sympa",
+  "bonus": [
+    "choix",
+    "originaux",
+    "light"
+  ],
+  "flavourCount": 32,
+  "flavours": {
+    "fr": [
+      "Bubble gum",
+      "Chocolat",
+      "Cacao (sorbet)"
+    ],
+    "en": [
+      "Bubble gum",
+      "Chocolate",
+      "Cocoa (sorbet)"
+    ]
+  },
+  "liked": {
+    "fr": [
+      "Beaucoup de parfums : 32 bacs en vitrine",
+      "Des parfums originaux",
+      "Des quantités généreuses, et le cornet est grand"
+    ],
+    "en": [
+      "Lots of flavours: 32 tubs on the counter",
+      "Unusual flavours",
+      "Generous servings, and the cone is big"
+    ]
+  },
+  "disliked": {
+    "fr": [
+      "L’accueil, poli mais distant"
+    ],
+    "en": [
+      "The welcome, polite but distant"
+    ]
+  },
+  "topping": {
+    "fr": "",
+    "en": ""
+  },
+  "twins": [],
+  "address": "11 boulevard Édouard Baudoin, 06160 Antibes",
+  "city": "Antibes",
+  "postalCode": "06160",
+  "coords": null,
+  "hours": {
+    "fr": "",
+    "en": ""
+  },
+  "phone": null,
+  "website": null
+}

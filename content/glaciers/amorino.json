@@ -19,6 +19,7 @@
   "priceUnit": null,
   "welcome": null,
   "bonus": [],
+  "flavourCount": null,
   "flavours": {
     "fr": [],
     "en": []
@@ -37,6 +38,8 @@
   },
   "twins": [],
   "address": "85 rue Félix Faure, 06400 Cannes",
+  "city": "Cannes",
+  "postalCode": "06400",
   "coords": [
     43.5523097,
     7.011468

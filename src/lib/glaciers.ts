@@ -30,7 +30,7 @@ export function glacierParSlug(slug: string): Glacier | undefined {
 
 /**
  * Le score sert uniquement à ordonner le classement : le goût sur 5,
- * plus les points bonus sur 7. Il n'est jamais affiché comme une note.
+ * plus les points bonus. Il n'est jamais affiché comme une note.
  */
 export function scoreTotal(g: Glacier): number {
   return (g.taste ?? 0) + g.bonus.length;
